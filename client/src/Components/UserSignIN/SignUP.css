@@ -1,15 +1,16 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+
 
 .container {
-    text-align: center;
+    font-family: Arial, sans-serif;
+   
+  
+
+    margin: 0;
+    min-height: 40vh;
+    display: flex;
+ justify-content: center;
+ border-bottom:0.5px solid #5555555b;
+
 }
 h3{
     font-weight: 800;
@@ -24,6 +25,8 @@ h2 {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    margin-bottom: 20px;
+    
 }
 
 .form-box {
@@ -53,7 +56,7 @@ input {
     border-radius: 4px;
 }
 
-button {
+.button {
     width: 100%;
     padding: 10px;
     background-color: #007BFF;
@@ -61,13 +64,31 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 
-button:hover {
+.button:hover {
     background-color: #0056b3;
 }
 
-#message {
+.message {
     color: red;
     margin-top: 20px;
+}
+
+.link{
+   display: flex;
+   justify-content: center;
+   background-color: #ff0055;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   width: 90%;
+   padding: 10px;
+
+}
+.link:hover {
+    background-color: #ff0055cc;
 }

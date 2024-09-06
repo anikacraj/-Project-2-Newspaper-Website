@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../UserSignIN/SignUP.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import HeaderSign from '../Header/HeaderSign';
+import Footer from '../Footer/footer';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -27,7 +29,10 @@ function Login() {
   };
 
   return (
-    <div className="form-container">
+  <div >
+    <HeaderSign />
+     <div className='container'>
+     <div className="form-container">
       <div className="form-box" id="signin-box">
         <h3 style={{ textAlign: 'center' }}>Log In</h3>
         <form id="signin-form" onSubmit={handleSubmit}>
@@ -49,10 +54,13 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)} 
           />
 
-          <button type="submit">Log In</button>
+          <button className='button' type="submit">Log In</button>
         </form>
       </div>
     </div>
+   </div>
+   <Footer />
+  </div>
   );
 }
 

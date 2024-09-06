@@ -1,51 +1,61 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import axios from'axios'
-import { useNavigate } from 'react-router-dom';
-
-
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './SignUP.css';
-function Signup(){
-  const[name,setname] =useState();
-  const[email,setemail] =useState();
-  const[password,setpassword] =useState();
-  const navigate =useNavigate();
- 
-const handleSubmit=(e)=>{
-  e.preventDefault();
-axios.post('http://localhost:3004/register',{name,email,password})
-.then(result => {console.log(result)
-navigate('/login')
-useState('');
-}
-)
-.catch(err =>{console.log(err)})
-}
+import HeaderSign from '../Header/HeaderSign';
+import Footer from '../Footer/footer';
 
+function Signup() {
+  const [name, setName] = useState(''); 
+  const [email, setEmail] = useState(''); 
+  const [password, setPassword] = useState(''); 
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:3004/register', { name, email, password })
+      .then(result => {
+        console.log(result);
+        navigate('/login');
+        setName(''); 
+        setEmail(''); 
+        setPassword('');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   return (
-    <div className="form-container">
+
+<div >
+<HeaderSign />
+
+   <div className='container' >
+     <div className="form-container" style={{width :'1000px'}}>
       <div className="form-box" id="signin-box">
-        <h3 style={{textAlign:'center',}}>Sign In</h3>
+        <h3 style={{ textAlign: 'center' }}>Sign Up</h3>
         <form id="signin-form" onSubmit={handleSubmit}>
-        <label htmlFor="signin-email">Name:</label>
- <input type="name" name='name' id="name" required onChange={(e)=>{setname(e.target.value)}} />
+          <label htmlFor="name">Name:</label>
+          <input type="text" name='name' id="name" required onChange={(e) => setName(e.target.value)} />
 
           <label htmlFor="signin-email">Email:</label>
-          <input type="email" name='email' id="signin-email" required onChange={(e)=>{setemail(e.target.value)}}  />
+          <input type="email" name='email' id="signin-email" required onChange={(e) => setEmail(e.target.value)} />
 
           <label htmlFor="signin-password">Password:</label>
-          <input type="password" name='password' id="signin-password" required onChange={(e)=>{setpassword(e.target.value)}}   />
+          <input type="password" name='password' id="signin-password" required onChange={(e) => setPassword(e.target.value)} />
 
-         
-
-          <button type="submit" >Sign In</button>
+          <button className='button' type="submit">Sign Up</button>
         </form>
-        <p>already have an account</p>
-   <Link to="/login">Log in</Link>
+        <p className='message'>Already have an account?</p>
+        <Link className='link' to="/login">Login</Link>
       </div>
     </div>
-  )
+   </div >
+
+   <Footer />
+   </div>
+  );
 }
 
-export default Signup
+export default Signup;
