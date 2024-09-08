@@ -1,0 +1,15 @@
+.Container-body {
+    margin-top: 20px;
+    width: 80vw;
+    height: 40vh;
+
+    display: grid;
+   grid-template-columns:   repeat(auto-fill,minmax(300px,2fr));
+   grid-gap: 0.5vw;
+
+  }
+  
+.items-div{
+   background-color: #ddd;
+   border: 0.5px solid #333;
+}

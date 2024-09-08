@@ -1,8 +1,16 @@
 import React from 'react'
+import Header from '../../Components/Header/Header'
+import Footer from '../../Components/Footer/footer'
 
 function NationalPage() {
   return (
-    <div>NationalPage</div>
+    <div>
+
+<Header />
+
+
+<Footer />
+    </div>
   )
 }
 
