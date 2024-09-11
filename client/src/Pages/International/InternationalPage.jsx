@@ -1,17 +1,19 @@
 import React from 'react'
 import Header from '../../Components/Header/Header'
 import Footer from '../../Components/Footer/footer'
+import UpBody from '../../Components/MainBody/UpBody'
 
 function InternationalPage() {
   return (
-    <div>InternationalPage
+    <>
 
 
 <Header />
 
+<UpBody />
 
 <Footer />
-    </div>
+    </>
   )
 }
 

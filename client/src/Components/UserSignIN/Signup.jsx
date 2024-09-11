@@ -45,22 +45,17 @@ function Signup() {
   });
 
   return (
-    <div>
-      <HeaderSign />
-      <div className='container'>
-        <div className="form-container" style={{ width: '1000px' }}>
-          <div className="form-box" id="signin-box">
-            <h3 style={{ textAlign: 'center' }}>Sign Up</h3>
-            <form id="signin-form" onSubmit={formik.handleSubmit}>
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                onChange={formik.handleChange}
-                value={formik.values.name}
-              />
-              {formik.errors.name ? <h6>{formik.errors.name}</h6> : null}
+
+<div >
+<HeaderSign />
+
+   <div className='container' >
+     <div className="form-container" style={{width :'1000px'}}>
+      <div className="form-box" id="signin-box">
+        <h3 style={{ textAlign: 'center' }}>Sign Up</h3>
+        <form id="signin-form" onSubmit={handleSubmit}>
+          <label htmlFor="name">Name:</label>
+          <input type="text" name='name' id="name" required onChange={(e) => setName(e.target.value)} />
 
               <label htmlFor="signin-email">Email:</label>
               <input

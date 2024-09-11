@@ -1,8 +1,22 @@
 import React from 'react'
+import Header from '../../Components/Header/Header'
+import UpBody from '../../Components/MainBody/UpBody'
+
+import Footer from '../../Components/Footer/Footer'
 
 function Business() {
   return (
-    <div>Business</div>
+    <>
+<Header />
+
+<UpBody /> 
+
+<Footer />
+
+
+
+
+    </>
   )
 }
 

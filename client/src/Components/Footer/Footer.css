@@ -1,7 +1,7 @@
 .footer{
     background-color:#000000 ;
     width: 100%;
- height: 40vh;
+ height: 50vh;
 margin-top: 5vh;
   
 
@@ -14,8 +14,15 @@ margin-top: 5vh;
     justify-content: space-around;
     background-color:#000000 ;
   
+  
    
 }
+.border-element {
+    width: 70%;            
+    border-bottom: 2px solid #98A2B3; 
+    margin: 0 auto;        
+  }
+  
 
 .right-menu{
   

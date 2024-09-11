@@ -37,9 +37,11 @@ const footerItem = [
             <li  key={title}> <NavLink style={{color :'white'}} to='{Path}'>{title} </NavLink></li>
         ))}
     </ul>
-    <hr />
+   
     </div>
     </div>
+
+    <div className='border-element'> </div>
     <div className='downFooter'>
       <div className="downLeft"> 
      <h4 style={{color:'#98A2B3'}}> © 2024 thedailystar.net | Powered by: RSI LAB</h4>
