@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../../Components/Header/Header'
 import Footer from '../../Components/Footer/footer'
+import UpBody from '../../Components/MainBody/UpBody'
 
 function NationalPage() {
   return (
@@ -8,6 +9,7 @@ function NationalPage() {
 
 <Header />
 
+<UpBody />
 
 <Footer />
     </div>

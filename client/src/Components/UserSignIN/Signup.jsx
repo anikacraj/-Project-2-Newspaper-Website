@@ -32,9 +32,11 @@ function Signup() {
 <HeaderSign />
 
    <div className='container' >
-     <div className="form-container" style={{width :'1000px'}}>
-      <div className="form-box" id="signin-box">
-        <h3 style={{ textAlign: 'center' }}>Sign Up</h3>
+     <div className="form-container" >
+   <div> <img className='signinImage'  src="../../Media/signPage.jpg" alt="" />  </div>
+
+   <div className="form-box" id="signin-box">
+    
         <form id="signin-form" onSubmit={handleSubmit}>
           <label htmlFor="name">Name:</label>
           <input type="text" name='name' id="name" required onChange={(e) => setName(e.target.value)} />

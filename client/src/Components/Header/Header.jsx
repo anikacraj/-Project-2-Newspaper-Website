@@ -34,11 +34,12 @@ function Header() {
                         <div className="name">Newswire Today</div>
                     </div>
                     <div className="newsDiv">
+                      
                         <div className="headerNews" style={{width:'200px'}}><span style={{fontSize:"12px", fontWeight:"20", color:'green'}}>{getDate+"/"+getMonth+"/"+getYear}</span> <br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, possimus qui maxime at tempora necessitatibus!</div>
                         <div className="headerNews" style={{width:'200px'}}><span style={{fontSize:"12px", fontWeight:"20", color:'green'}}>{getDate+"/"+getMonth+"/"+getYear}</span> <br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, possimus qui maxime at tempora necessitatibus!</div>
                         <div className="headerNews" style={{width:'200px'}}><span style={{fontSize:"12px", fontWeight:"20", color:'green'}}>{getDate+"/"+getMonth+"/"+getYear}</span> <br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, possimus qui maxime at tempora necessitatibus!</div>
                         <div className="headerNews" style={{width:'200px'}}><span style={{fontSize:"12px", fontWeight:"20", color:'green'}}>{getDate+"/"+getMonth+"/"+getYear}</span> <br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, possimus qui maxime at tempora necessitatibus!</div>
-                        <div className="headerNews" style={{width:'200px'}}><span style={{fontSize:"12px", fontWeight:"20", color:'green'}}>{getDate+"/"+getMonth+"/"+getYear}</span> <br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, possimus qui maxime at tempora necessitatibus!</div>
+                      
                     </div>
                 </div>
                 <div className="secondRow">

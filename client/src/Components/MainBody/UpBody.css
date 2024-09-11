@@ -4,7 +4,7 @@
     height: 40vh;
 
     display: grid;
-   grid-template-columns:   repeat(auto-fill,minmax(300px,2fr));
+   grid-template-columns:   repeat(auto-fill,minmax(220px,1fr));
    grid-gap: 0.5vw;
 
   }
