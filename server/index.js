@@ -2,30 +2,30 @@ const express =require("express")
 
 var mongoose = require('mongoose');
 const cors =require("cors")
-const EmployeeModal = require('./Models/Employee')
+const usersRegisterModal = require('./Models/usersRegister')
 
 
 const app = express()
 app.use(express.json())
 app.use(cors());
-//Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/employee';
+
+var mongoDB = "mongodb://127.0.0.1:27017/SunriseNewspaper";
 mongoose.connect(mongoDB,{ useNewUrlParser: true, useUnifiedTopology: true });
- //Get the default connection
-var db = mongoose.connection;
-//Bind connection to error event (to get notification of connection errors)
+
+var db = mongoose.connection; 
+
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.post ("/register",(req,res)=>{
-EmployeeModal.create(req.body)
-.then(employees => res.json(employees))
+    usersRegisterModal.create(req.body)
+.then(users => res.json(users))
 .catch(err => res.json(err))
 })
 
 app.post("/login",(req,res)=>{
  const {email,password} = req.body;
- EmployeeModal.findOne({email :email})
+ usersRegisterModal.findOne({email :email})
  .then(user =>{
     if(user){
         if(user.password === password){

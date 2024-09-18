@@ -14,6 +14,8 @@ import InternationalPage from './Pages/International/InternationalPage'
 import Football from './Pages/Sports/Football'
 import Cricket from './Pages/Sports/Cricket'
 import Business from './Pages/Business/Business'
+import RichTextEditor from './Components/RichTextEditor'
+import ShowUsers from './Pages/AdminPanel/ShowUsers/ShowUsers'
 
 
 function App() {
@@ -32,6 +34,9 @@ function App() {
  <Route path='/cricket' element={<Cricket />}> </Route>
  <Route path='/football' element={<Football />}> </Route>
  <Route path='/business' element={<Business />}> </Route>
+ <Route path='/texteditor' element={<RichTextEditor />}> </Route>
+ <Route path='/showUsers' element={<ShowUsers />}> </Route>
+
   
 
 
