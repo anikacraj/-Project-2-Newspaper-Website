@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './SignUP.css';
-import HeaderSign from '../Header/HeaderSign';
-import Footer from '../Footer/footer';
+import HeaderSign from '../../../../Components/ForUsers/Header/HeaderSign';
+import Footer from '../../../../Components/ForUsers/Footer/Footer';
+
 
 function Signup() {
   const [name, setName] = useState('');   

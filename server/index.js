@@ -3,6 +3,7 @@ const express =require("express")
 var mongoose = require('mongoose');
 const cors =require("cors")
 const usersRegisterModal = require('./Models/usersRegister')
+const contactMessageModal =require('./Models/Contact')
 
 
 const app = express()
@@ -21,6 +22,25 @@ app.post ("/register",(req,res)=>{
     usersRegisterModal.create(req.body)
 .then(users => res.json(users))
 .catch(err => res.json(err))
+});
+
+app.post ("/contact",(req,res)=>{
+    contactMessageModal.create(req.body)
+    
+.then(users => res.json(users))
+.catch(err => res.json(err))
+});
+
+app.get("/register",(req,res)=>{
+    usersRegisterModal.find()
+    .then (users=> res.json(users))
+    .catch(err=> res.json(err))
+})
+
+app.get("/contact",(req,res)=>{
+    contactMessageModal.find()
+    .then (message=> res.json(message))
+    .catch(err=> res.json(err))
 })
 
 app.post("/login",(req,res)=>{

@@ -5,15 +5,22 @@ justify-content: space-around;
 
 box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
+.logoImage{
+
+  height: 100px;
+  width: 200px;
+  border-radius: 10%;
+  margin-right: 6vw;
+}
 .newsDiv{
     min-width: 1160px;
     height: 100px;
     padding: 4px;
     color: black;
     display: flex;
-    justify-content: center;
+   gap: 2vw;
 
-    gap: 2vw;
+
    
     
 }
@@ -21,7 +28,7 @@ box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8p
     font-size: 30px;
 
     color: rgb(19, 11, 2);
-    padding: 3vh;
+  
 }
 .headerNews{
   

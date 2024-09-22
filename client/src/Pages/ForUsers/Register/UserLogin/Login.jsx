@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import '../UserSignIN/SignUP.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import HeaderSign from '../Header/HeaderSign';
-import Footer from '../Footer/footer';
+import HeaderSign from '../../../../Components/ForUsers/Header/HeaderSign';
+import Footer from '../../../../Components/ForUsers/Footer/footer';
 
 function Login() {
   const [email, setEmail] = useState('');

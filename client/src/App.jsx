@@ -3,19 +3,21 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import{BrowserRouter,Routes,Route} from 'react-router-dom'
-import Signup from './Components/UserSignIN/Signup'
-import Login from './Components/UserLogin/Login'
-import Home from './Pages/Home/Home'
-import Error from './Pages/ErrorPage/Error'
-import AboutPage from './Pages/About/AboutPage'
-import ContactPage from './Pages/Contact/ContactPage'
-import NationalPage from '../src/Pages/National/NationalPage'
-import InternationalPage from './Pages/International/InternationalPage'
-import Football from './Pages/Sports/Football'
-import Cricket from './Pages/Sports/Cricket'
-import Business from './Pages/Business/Business'
-import RichTextEditor from './Components/RichTextEditor'
+import Home from './Pages/ForUsers/Home/Home'
+import Signup from './Pages/ForUsers/Register/UserSignIN/Signup'
+import Login from './Pages/ForUsers/Register/UserLogin/Login'
+import AboutPage from './Pages/ForUsers/About/AboutPage'
+import ContactPage from './Pages/ForUsers/Contact/ContactPage'
+import NationalPage from './Pages/ForUsers/National/NationalPage'
+import InternationalPage from './Pages/ForUsers/International/InternationalPage'
+import Cricket from './Pages/ForUsers/Sports/Cricket'
+import Football from './Pages/ForUsers/Sports/Football'
+import Business from './Pages/ForUsers/Business/Business'
+import RichTextEditor from './Components/ForUsers/RichTextEditor'
+import ShowMessage from './Pages/AdminPanel/ShowMessage/ShowMessage'
 import ShowUsers from './Pages/AdminPanel/ShowUsers/ShowUsers'
+
+
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
  <Route path='/business' element={<Business />}> </Route>
  <Route path='/texteditor' element={<RichTextEditor />}> </Route>
  <Route path='/showUsers' element={<ShowUsers />}> </Route>
+ <Route path='/showMessage' element={<ShowMessage />}> </Route>
+
 
   
 

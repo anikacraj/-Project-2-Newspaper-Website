@@ -31,7 +31,9 @@ function Header() {
                 <div className="firstRow">
                     <div className="logo">
                
-                        <div className="name">Newswire Today</div>
+                        <div className="name">
+                        <div> <img className='logoImage'  src="../../Media/logo.jpg" alt="" />  </div>
+                        </div>
                     </div>
                     <div className="newsDiv">
                       
@@ -68,10 +70,11 @@ function Header() {
                     <button className='searchButton' type='submit'>Search </button>
                     
                   </div>
-                    <div  className="right-menuitems"><li><NavLink to="/register">🖨️Sign Up </NavLink> </li></div>
-                    <div className="right-menuitems"><li><NavLink to="#">🖨️E-Paper</NavLink></li></div>
-                    <div className="right-menuitems"><li><NavLink to="#">🌐BN</NavLink></li></div>
-                    <div className="right-menuitems"><li><NavLink to="/contact">📞Contact</NavLink></li></div>
+                    <div  className="right-menuitems"><li><NavLink to="/register">👤Sign Up </NavLink> </li></div>
+                    <div  className="right-menuitems"><li><NavLink to="/ebook">🖨️E-Book</NavLink> </li></div>
+                    <div  className="right-menuitems"><li><NavLink to="#">🌐BN</NavLink> </li></div>
+                   
+                    <div className="right-menuitems"><li><NavLink to="/contact">📞Contact Us</NavLink></li></div>
                    </div>
                 </div>
             </nav>
