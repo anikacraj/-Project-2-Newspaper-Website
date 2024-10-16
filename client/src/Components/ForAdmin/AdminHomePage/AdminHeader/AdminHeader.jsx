@@ -1,18 +1,8 @@
-import React, {useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // import {FaFacebook,FaAffiliatetheme} from 'react-icons/fa'
-import './Header.css';
+import '../../../ForUsers/Header/Header.css';
+import './AdminHeader.css'
 import { Link, NavLink } from 'react-router-dom';
-import axios from 'axios'
-
-
-const date =new Date();
- const getDate =date.getDate();
- const getMonth =date.getMonth();
- const getYear  =date.getFullYear();
- 
- 
-
-
 
 
 function Header() {
@@ -26,58 +16,23 @@ function Header() {
         setSubmenuVisible(false);
     };
 
-    const [messages,setmessages] =useState([])
-    useEffect(()=>{
-       axios.get("http://localhost:3004/admin/headernews")
-       .then(news => setmessages(news.data))
-       .catch(err=> res.json(err))
-     },[])
 
     return (
         <div>
             <nav>
                 <div className="firstRow">
+                    
+                  
                     <div className="logo">
                
                         <div className="name">
                         <div> <img className='logoImage'  src="../../Media/logo.jpg" alt="" />  </div>
                         </div>
                     </div>
-                    <div className="newsDiv">
-
-                    
-   
-            <div className='HeaderNews' >
-              <div className="header-News" >
-               {messages.messageOne}
-               
-              </div>
-              <div className="header-News" >
-               {messages.messageTwo}
-                <br />
-                
-              </div>
-              <div className="header-News" >
-                {messages.messageThree}
-           
-              </div>
-              <div className="header-News" id='header-News4' >
-               
-                {messages.messageFour}
-               
-                <br />
-               
-              </div>
-            </div>
-        
-        
-      
-    
-                      
-                     
-                      
                     </div>
-                </div>
+                    
+                 
+               
                 <div className="secondRow">
                    <div className="left">
                    <div className="Home"><li><NavLink to="/">Breaking News </NavLink></li></div>
@@ -106,13 +61,35 @@ function Header() {
                   </div>
                     <div  className="right-menuitems"><li><NavLink to="/register">👤Sign Up </NavLink> </li></div>
                     <div  className="right-menuitems"><li><NavLink to="/ebook">🖨️E-Book</NavLink> </li></div>
-                    <div  className="right-menuitems"><li><NavLink to="#">🌐BN</NavLink> </li></div>
+                    <div  className="right-menuitems"><li><NavLink to="/ShowUsers">👥Users</NavLink> </li></div>
                    
-                    <div className="right-menuitems"><li><NavLink to="/contact">📞Contact Us</NavLink></li></div>
+                    <div className="right-menuitems"><li><NavLink to="/ShowMessage">📜Messages</NavLink></li></div>
                    </div>
                 </div>
             </nav>
+
+            <div className="middleBody">
+
+           <div className="newsletter">  <a href="/admin/headernews">  <h4>Header News </h4>  </a>  </div>
+            <div className="newsletter"> <a href=""> <h4> Archives </h4>   </a>  </div>
+            <div className="newsletter"> <a href=""> <h4>About Self </h4>  </a> </div>
+            <div className="newsletter"> <a href=""> <h4> Contact Us </h4> </a>  </div>
+           </div>
+
+
+           <div className="middleBody">
+           <div className="newsletter"> <a href=""><h4>News Letter </h4> </a>      </div>
+            <div className="newsletter"><a href=""> <h4> Privacy Policy</h4></a>   </div>
+            <div className="newsletter"><a href=""> <h4>Community Policy </h4></a>   </div>
+            <div className="newsletter"><a href="">  <h4> Advertisment Request </h4> </a> </div>
+           </div>
+
+
         </div>
+
+
+
+
     );
 }
 

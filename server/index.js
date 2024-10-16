@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 const cors =require("cors")
 const usersRegisterModal = require('./Models/usersRegister')
 const contactMessageModal =require('./Models/Contact')
-
+const HeaderNewsModal =require ('./Models/HeaderNews')
 
 const app = express()
 app.use(express.json())
@@ -31,17 +31,35 @@ app.post ("/contact",(req,res)=>{
 .catch(err => res.json(err))
 });
 
+app.post("/admin/headernews",(req,res)=>{
+    HeaderNewsModal.create(req.body)
+    .then(users =>res.json(users))
+    .catch(err => res.json(err))
+});
+
 app.get("/register",(req,res)=>{
     usersRegisterModal.find()
     .then (users=> res.json(users))
     .catch(err=> res.json(err))
 })
 
-app.get("/contact",(req,res)=>{
+app.get("/contact", (req, res) => {
     contactMessageModal.find()
-    .then (message=> res.json(message))
-    .catch(err=> res.json(err))
-})
+      .then(message => {
+        console.log(message); // Check if messages are correctly retrieved from the database
+        res.json(message);
+      })
+      .catch(err => res.json(err));
+  });
+  
+
+app.get("/admin/headernews",(req,res)=>{
+    HeaderNewsModal.findOne().sort({ _id: -1 })
+    .then(news => res.json(news))
+    .catch(err => res.json(err))
+});
+
+
 
 app.post("/login",(req,res)=>{
  const {email,password} = req.body;

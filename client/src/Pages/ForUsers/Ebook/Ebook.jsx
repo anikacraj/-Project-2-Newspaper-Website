@@ -1,15 +1,28 @@
-import React from 'react'
-import './Header.css';
-import './HeaderSign.css'
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from 'react-router-dom';
+import './Ebook.css'
+function Ebook() {
+    const [dayName, setDayName] = useState("");
+    const [currentDate, setCurrentDate] = useState("");
+useEffect(()=>{
+    const today =new Date();
+    const dayOptions ={weekday: 'long'};
+    const dayNameString =today.toLocaleDateString("en-Us",dayOptions);
+
+    const dateOptions ={year:'numeric',month:'long',day:'numeric'};
+    const currentDateString = today.toLocaleDateString("en-US", dateOptions);
+    setDayName(dayNameString);
+    setCurrentDate(currentDateString);
+},[]);
 
 
-function HeaderSign() {
+
   return (
     <div>
-    <nav>
+
+<nav>
         <div >
-        <div className="firstRow" >
+        <div className="firstRow" id='firstRow'>
             <div className="logo">
        
                 <div className="name">
@@ -17,13 +30,13 @@ function HeaderSign() {
                 </div>
             </div>
             <div className="newsDiv">
-               
+               <h2 className='Subcription'> Subscription </h2>
             </div>
         </div>
         </div>
         <div className="secondRow" style={{borderBottom:'0.5px solid #333', display: 'flex', justifyContent:'space-around'}} >
            <div className="left">
-           <div className="Home"><li><NavLink to="/">Breaking News </NavLink></li></div>
+           <div className="Home"><li style={{marginTop:'-15px'}}><h4>{dayName} {currentDate}</h4> </li></div>
           
           
           
@@ -38,8 +51,8 @@ function HeaderSign() {
            </div>
         </div>
     </nav>
-</div>
+    </div>
   )
 }
 
-export default HeaderSign
+export default Ebook

@@ -1,0 +1,50 @@
+
+.movingtext{
+    
+    height: 30px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+   
+}
+.slider{
+  
+
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+    .slidertext{
+        display: inline-block;
+        white-space: nowrap;
+    animation-name: anim;
+    animation-timing-function: linear;
+  
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    }
+    .gole{
+        width: 2vh;
+        height: 2vh;
+        border-radius: 50%;
+        background-color: #FE3204;
+        display: inline-block;
+        white-space: nowrap;
+        margin-left: 6px;
+        margin-right: 6px;
+        
+        }
+     h4{
+        display: inline-block;
+     
+       
+    }
+    @keyframes anim {
+        from{
+            transform: translateX(0%);
+        }
+        to{
+            transform: translateX(-100%);
+        }
+    }

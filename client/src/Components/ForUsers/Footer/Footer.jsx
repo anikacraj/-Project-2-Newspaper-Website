@@ -6,18 +6,18 @@ function Footer() {
 
 const footerItem = [
 
-{title : "About Us" , Path:"/"},
+{title : "About Us" , Path:"/about"},
 
 
-{title : " Contact Us" , Path:"/contact"},
-{title : " RSS" , Path:"/"},
-{title : "Newsletter " , Path:"/"},
-{title : "Archives " , Path:"/"},
+{title : " Contact Us" , Path:'/contact'},
+{title : " RSS" , Path:"/rss"},
+{title : "Newsletter " , Path:"/newsletter"},
+{title : "Archives " , Path:"/archives"},
 {title : " Apps" , Path:"/"},
 {title : " FB Page" , Path:"/"},
-{title : " Advertisement" , Path:"/"},
-{title : "Privacy Policy " , Path:"/"},
-{title : "Comment Policy" , Path:"/"},
+{title : " Advertisement" , Path:"/advertisment"},
+{title : "Privacy Policy " , Path:"/privacy"},
+{title : "Comment Policy" , Path:"/commentpolicy"},
 
 
 ]
@@ -34,7 +34,11 @@ const footerItem = [
    <ul className='right-menu'>
         {footerItem.map(({title,Path})=>(
 
-            <li  key={title}> <NavLink style={{color :'white'}} to='{Path}'>{title} </NavLink></li>
+<li key={title}>
+<NavLink style={{ color: 'white' }} to={Path}>
+  {title}
+</NavLink>
+</li>
         ))}
     </ul>
    

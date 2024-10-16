@@ -1,0 +1,40 @@
+.form-box{
+    height: 20px;
+    width: 100%;
+   
+    margin: 0 auto;
+}
+
+
+.AdminheaderNews{
+    display: flex;
+justify-content: center;
+align-items: center;
+gap: 3vh;
+background-color: #344054e8;
+color: aliceblue;
+border-radius: 2px;
+
+}
+.label{
+    color: white;
+}
+.buttonHeaderNews{
+    height: 60px;
+    width: 200px;
+    background-color: rgba(26, 255, 0, 0.568);
+    margin-top: 4vh;
+   border-radius: 5px;
+   color: white;
+   cursor: pointer;
+font-size: 18px;
+font-weight: 500;
+    
+ 
+    
+}
+.textarea{
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    border: 3px solid black;
+}

@@ -16,6 +16,13 @@ import Business from './Pages/ForUsers/Business/Business'
 import RichTextEditor from './Components/ForUsers/RichTextEditor'
 import ShowMessage from './Pages/AdminPanel/ShowMessage/ShowMessage'
 import ShowUsers from './Pages/AdminPanel/ShowUsers/ShowUsers'
+import AdminHome from './Pages/AdminPanel/AdminHome'
+import AdminHeaderNews from './Pages/AdminPanel/AdminHeaderNews/AdminHeaderNews'
+import Advertisment from './Pages/ForUsers/Advertisment/Advertisment'
+import NewsLetter from './Pages/ForUsers/Newsletter/NewsLetter'
+import CommentPOlicy from './Pages/ForUsers/CommentPolicy/CommentPOlicy'
+import PrivacyPolicy from './Pages/ForUsers/PrivacyPolicy/PrivacyPolicy'
+import Ebook from './Pages/ForUsers/Ebook/Ebook'
 
 
 
@@ -36,9 +43,22 @@ function App() {
  <Route path='/cricket' element={<Cricket />}> </Route>
  <Route path='/football' element={<Football />}> </Route>
  <Route path='/business' element={<Business />}> </Route>
+  <Route path='/advertisment' element={<Advertisment />}> </Route>
+ <Route path='/newsletter' element={<NewsLetter />}> </Route>
+ <Route path='/commentpolicy' element={<CommentPOlicy />}> </Route>
+ <Route path='/privacy' element={<PrivacyPolicy />}> </Route>
+ <Route path='/ebook' element={<Ebook />}> </Route>
+
+
+{/* admin router  */}
+
+
  <Route path='/texteditor' element={<RichTextEditor />}> </Route>
  <Route path='/showUsers' element={<ShowUsers />}> </Route>
  <Route path='/showMessage' element={<ShowMessage />}> </Route>
+ <Route path='/admin/home' element={<AdminHome />}> </Route>
+ <Route path='/admin/headernews' element={<AdminHeaderNews />}> </Route>
+
 
 
   

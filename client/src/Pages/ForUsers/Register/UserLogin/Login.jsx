@@ -30,23 +30,23 @@ function Login() {
 
   return (
   <div >
-    <HeaderSign />
+ 
      <div className='container'>
-     <div className="form-container">
+     <div className="form-container"  >
       <div className="form-box" id="signin-box">
-        <h3 style={{ textAlign: 'center' }}>Log In</h3>
-        <form id="signin-form" onSubmit={handleSubmit}>
+        <h3 style={{ textAlign: 'center', marginTop:'-10px'}}>Log In</h3>
+        <form id="signin-form"   onSubmit={handleSubmit}>
           <label htmlFor="signin-email">Email:</label>
-          <input 
+          <input className='input-login'
             type="email" 
             name="email" 
             id="signin-email" 
             required 
             onChange={(e) => setEmail(e.target.value)} 
           />
-
+<br />
           <label htmlFor="signin-password">Password:</label>
-          <input 
+          <input className='input-login'
             type="password" 
             name="password" 
             id="signin-password" 
@@ -56,10 +56,12 @@ function Login() {
 
           <button className='button' type="submit">Log In</button>
         </form>
+      
+       
       </div>
     </div>
    </div>
-   <Footer />
+ 
   </div>
   );
 }

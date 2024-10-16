@@ -50,13 +50,13 @@ const click=()=>{
     
         <form id="signin-form" onSubmit={handleSubmit}>
           <label htmlFor="name">Name:</label>
-          <input type="text" name='name' id="name" required onChange={(e) => setName(e.target.value)} />
+          <input type="text" name='name' id="name" required onChange={(e) => setName(e.target.value)} rows="2" cols="55" />
 
           <label htmlFor="signin-email">Email:</label>
-          <input type="email" name='email' id="signin-email" required onChange={(e) => setEmail(e.target.value)} />
+          <input type="email" name='email' id="signin-email" required onChange={(e) => setEmail(e.target.value)} rows="2" cols="55"/>
 
           <label htmlFor="signin-password">write Message :</label>
-          <textarea type="message" name='message' id="message" required onChange={(e) => setMessage(e.target.value)} />
+          <textarea type="message" name='message' id="message" required onChange={(e) => setMessage(e.target.value)} rows="4" cols="60"/>
 
           <button className='button' type="submit" onClick={click}>Send Message </button>
         </form>

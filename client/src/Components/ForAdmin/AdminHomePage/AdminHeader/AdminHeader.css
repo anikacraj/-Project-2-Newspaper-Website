@@ -1,0 +1,28 @@
+
+.middleBody{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 8vh;
+}
+.newsletter{
+    height: 100px;
+    width: 180px;
+    border-radius: 10px;
+   background-color: rgba(9, 94, 130, 0.676);
+   color: white;
+    text-align: center;
+    cursor: pointer;
+
+    
+}
+.newsletter:hover{
+    background-color: rgba(9, 94, 130, 0.9);
+}
+.newsletter a h4{
+    text-align: center;
+    padding-top: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: white;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import '../ShowMessage/ShowMessage.css'
 import axios from 'axios'
 
 function ShowUsers()
@@ -13,23 +14,23 @@ const [users,setUsers] =useState([])
   return (
     <div>
 
-      <h1>Show all Users </h1>
+      <h1 style={{textAlign:'center'}}>Show all Users </h1>
 
-<div style={{}}>
-<table>
+<div >
+<table className='table'>
   <thead>
-    <tr >
-      <th>Name </th>
-      <th>Email </th>
+    <tr className='tr'>
+      <th className='th'>Name </th>
+      <th className='th'>Email </th>
     </tr>
   </thead>
   <tbody>
 
     {
       users.map(user =>  {
-       return  <tr>
-          <td>{user.name}</td>
-          <td>{user.email}</td>
+       return  <tr className='tr'>
+          <td className='td' >{user.name}</td>
+          <td className='td'>{user.email}</td>
         </tr>
       })
     }

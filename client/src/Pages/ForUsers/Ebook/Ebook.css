@@ -1,0 +1,16 @@
+.Subcription{
+    border: 1px solid rgb(254, 247, 247);
+    padding: 5px;
+    margin-right: 16px;
+    border-radius: 4px;
+    color: white;
+     cursor: pointer;
+
+}
+.Subcription:hover{
+    background-color: #fff;
+    color: #034F75;
+}
+#firstRow{
+background-color: #034F75;
+}
