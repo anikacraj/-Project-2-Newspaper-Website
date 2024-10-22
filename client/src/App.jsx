@@ -23,12 +23,19 @@ import NewsLetter from './Pages/ForUsers/Newsletter/NewsLetter'
 import CommentPOlicy from './Pages/ForUsers/CommentPolicy/CommentPOlicy'
 import PrivacyPolicy from './Pages/ForUsers/PrivacyPolicy/PrivacyPolicy'
 import Ebook from './Pages/ForUsers/Ebook/Ebook'
+import ShowNewsLetter from './Pages/AdminPanel/ShowNewsLetter/ShowNewsLetter'
 
 
 
 
 function App() {
  
+const submitHandle=(Data)=>{
+  console.log(Data)
+}
+
+
+const data ="check data "
 
   return (
  <BrowserRouter>
@@ -38,7 +45,7 @@ function App() {
   <Route path='/login' element={<Login />}> </Route>
   <Route path='/about' element={<AboutPage />}> </Route>
   <Route path='/contact' element={<ContactPage />}> </Route>
- <Route path='/national' element={<NationalPage />}> </Route>
+ <Route path='/national' element={<NationalPage data={data} onHandle={submitHandle}/>}> </Route>
  <Route path='/international' element={<InternationalPage />}> </Route>
  <Route path='/cricket' element={<Cricket />}> </Route>
  <Route path='/football' element={<Football />}> </Route>
@@ -58,6 +65,7 @@ function App() {
  <Route path='/showMessage' element={<ShowMessage />}> </Route>
  <Route path='/admin/home' element={<AdminHome />}> </Route>
  <Route path='/admin/headernews' element={<AdminHeaderNews />}> </Route>
+ <Route path='/showNewsLetter' element={<ShowNewsLetter />}> </Route>
 
 
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const text =new mongoose.Schema({
-    title:String,
-    news:String
+  
+content:String
    
 })
 

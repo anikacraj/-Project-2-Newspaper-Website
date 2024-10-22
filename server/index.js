@@ -5,6 +5,7 @@ const cors =require("cors")
 const usersRegisterModal = require('./Models/usersRegister')
 const contactMessageModal =require('./Models/Contact')
 const HeaderNewsModal =require ('./Models/HeaderNews')
+const textModal =require('./Models/richTextEditor');
 
 const app = express()
 app.use(express.json())
@@ -31,6 +32,19 @@ app.post ("/contact",(req,res)=>{
 .catch(err => res.json(err))
 });
 
+app.post ("/texteditor",(req,res)=>{
+    textModal.create(req.body)
+.then(content => res.json(content))
+.catch(err => res.json(err))
+});
+
+app.get ("/texteditor",(req,res)=>{
+    textModal.find()
+.then(content => res.json(content))
+.catch(err => res.json(err))
+});
+
+
 app.post("/admin/headernews",(req,res)=>{
     HeaderNewsModal.create(req.body)
     .then(users =>res.json(users))
@@ -46,7 +60,7 @@ app.get("/register",(req,res)=>{
 app.get("/contact", (req, res) => {
     contactMessageModal.find()
       .then(message => {
-        console.log(message); // Check if messages are correctly retrieved from the database
+        console.log(message); 
         res.json(message);
       })
       .catch(err => res.json(err));

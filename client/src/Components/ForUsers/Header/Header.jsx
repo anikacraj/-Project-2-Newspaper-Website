@@ -3,6 +3,7 @@ import React, {useEffect, useState } from 'react';
 import './Header.css';
 import { Link, NavLink } from 'react-router-dom';
 import axios from 'axios'
+import useFetch from '../../../Pages/AdminPanel/Fetch/useFetch';
 
 
 const date =new Date();
@@ -10,12 +11,16 @@ const date =new Date();
  const getMonth =date.getMonth();
  const getYear  =date.getFullYear();
  
+
  
 
 
 
 
 function Header() {
+
+
+
     const [submenuVisible, setSubmenuVisible] = useState(false);
 
     const handleMouseEnter = () => {
@@ -26,12 +31,17 @@ function Header() {
         setSubmenuVisible(false);
     };
 
-    const [messages,setmessages] =useState([])
-    useEffect(()=>{
-       axios.get("http://localhost:3004/admin/headernews")
-       .then(news => setmessages(news.data))
-       .catch(err=> res.json(err))
-     },[])
+    // const [messages,setMessages] =useState([])
+    // useEffect(()=>{
+    //    axios.get("http://localhost:3004/admin/headernews")
+    //    .then(news => setMessages(news.data))
+    //    .catch(err=> res.json(err))
+    //  },[])
+
+    const {data,isLoading,error} =useFetch("http://localhost:3004/admin/headernews");
+
+
+
 
     return (
         <div>
@@ -48,22 +58,22 @@ function Header() {
                     
    
             <div className='HeaderNews' >
-              <div className="header-News" >
-               {messages.messageOne}
+              <div style={{fontWeight:'300'}} className="header-News" >
+            {data.messageOne}
                
               </div>
-              <div className="header-News" >
-               {messages.messageTwo}
+              <div  style={{fontWeight:'300'}} className="header-News" >
+               {data.messageTwo}
                 <br />
                 
               </div>
-              <div className="header-News" >
-                {messages.messageThree}
+              <div  style={{fontWeight:'300'}} className="header-News" >
+                {data.messageThree}
            
               </div>
-              <div className="header-News" id='header-News4' >
+              <div  style={{fontWeight:'300'}} className="header-News" id='header-News4' >
                
-                {messages.messageFour}
+                {data.messageFour}
                
                 <br />
                
@@ -100,7 +110,7 @@ function Header() {
                    </div>
                    <div className="right">
                   <div className='input'>
-                    <input type="text" id='search' />
+                  <input type="text" id='search' />
                     <button className='searchButton' type='submit'>Search </button>
                     
                   </div>
