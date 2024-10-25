@@ -40,22 +40,30 @@ const data ="check data "
   return (
  <BrowserRouter>
  <Routes>
- <Route path='/' element={<Home />}> </Route>
-  <Route path='/register' element={<Signup />}> </Route>
+
+
+
+
+ <Route path='/' element={<Home />}>  </Route>
+ 
+ <Route path='national' element={<NationalPage />} /> 
+ <Route path='international' element={<InternationalPage />} /> 
+ <Route path='football' element={<Football />} />
+ <Route path='cricket' element={<Cricket />} />
+ <Route path='business' element={<Business />} />
+  <Route path='advertisment' element={<Advertisment />} /> 
+ <Route path='newsletter' element={<NewsLetter />} /> 
+ <Route path='commentpolicy' element={<CommentPOlicy />} />
+ <Route path='privacy' element={<PrivacyPolicy />} /> 
+ <Route path='ebook' element={<Ebook />} /> 
+
+
+
+
+ <Route path='/register' element={<Signup />}> </Route>
   <Route path='/login' element={<Login />}> </Route>
   <Route path='/about' element={<AboutPage />}> </Route>
   <Route path='/contact' element={<ContactPage />}> </Route>
- <Route path='/national' element={<NationalPage data={data} onHandle={submitHandle}/>}> </Route>
- <Route path='/international' element={<InternationalPage />}> </Route>
- <Route path='/cricket' element={<Cricket />}> </Route>
- <Route path='/football' element={<Football />}> </Route>
- <Route path='/business' element={<Business />}> </Route>
-  <Route path='/advertisment' element={<Advertisment />}> </Route>
- <Route path='/newsletter' element={<NewsLetter />}> </Route>
- <Route path='/commentpolicy' element={<CommentPOlicy />}> </Route>
- <Route path='/privacy' element={<PrivacyPolicy />}> </Route>
- <Route path='/ebook' element={<Ebook />}> </Route>
-
 
 {/* admin router  */}
 

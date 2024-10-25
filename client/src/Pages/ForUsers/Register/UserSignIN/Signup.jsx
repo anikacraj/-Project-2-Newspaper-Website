@@ -12,20 +12,33 @@ function Signup() {
   const [password, setPassword] = useState(''); 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios.post('http://localhost:3004/register', { name, email, password })
-      .then(result => {
-        console.log(result);
-        navigate('/login');
-        setName(''); 
-        setEmail(''); 
-        setPassword('');
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+  // Sign In Function (Register)
+const handleSubmit=(e)=>{
+
+  e.preventDefault();
+  axios.post("http://localhost:3004/register",{name,email,password})
+  .then(result =>{
+    console.log(result)
+
+localStorage.setItem('user',JSON.stringify({
+  name:name,
+  email:email,
+  signInDate: new Date().toISOString()
+}));
+navigate('/login');
+setName('');
+setEmail('');
+setPassword('');
+
+  })
+  .catch(err =>{
+    console.log(err);
+  })
+
+
+}
+
+
 
   return (
 

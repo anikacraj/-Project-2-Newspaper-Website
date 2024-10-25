@@ -6,6 +6,7 @@ import axios from 'axios'
 import useFetch from '../../../Pages/AdminPanel/Fetch/useFetch';
 
 
+
 const date =new Date();
  const getDate =date.getDate();
  const getMonth =date.getMonth();
@@ -19,7 +20,7 @@ const date =new Date();
 
 function Header() {
 
-
+  const [user, setUser] = useState(null);
 
     const [submenuVisible, setSubmenuVisible] = useState(false);
 
@@ -31,15 +32,22 @@ function Header() {
         setSubmenuVisible(false);
     };
 
-    // const [messages,setMessages] =useState([])
-    // useEffect(()=>{
-    //    axios.get("http://localhost:3004/admin/headernews")
-    //    .then(news => setMessages(news.data))
-    //    .catch(err=> res.json(err))
-    //  },[])
 
     const {data,isLoading,error} =useFetch("http://localhost:3004/admin/headernews");
 
+   
+useEffect (()=>{
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+  if(storedUser){
+    setUser(storedUser);
+  
+  }
+},[]);
+
+const handleLogOut = () => {
+  localStorage.removeItem("user"); // Use quotes around "user"
+  setUser(null); // Ensure setUser is defined and updates the login state
+};
 
 
 
@@ -50,7 +58,7 @@ function Header() {
                     <div className="logo">
                
                         <div className="name">
-                        <div> <img className='logoImage'  src="../../Media/logo.jpg" alt="" />  </div>
+                        <div> <img className='logoImage'  src="../../Media/red.png" alt="" />  </div>
                         </div>
                     </div>
                     <div className="newsDiv">
@@ -114,7 +122,16 @@ function Header() {
                     <button className='searchButton' type='submit'>Search </button>
                     
                   </div>
-                    <div  className="right-menuitems"><li><NavLink to="/register">👤Sign Up </NavLink> </li></div>
+               <div>
+               {user ? (
+            // Show "Log Out" if user is logged in
+            <li><NavLink to="/" onClick={handleLogOut}> 🧑‍✈️Log Out</NavLink></li>
+          ) : (
+            // Show "Sign Up" if no user is logged in
+            <li><NavLink to="/register">👤Sign Up</NavLink></li>
+          )}
+               </div>
+          
                     <div  className="right-menuitems"><li><NavLink to="/ebook">🖨️E-Book</NavLink> </li></div>
                     <div  className="right-menuitems"><li><NavLink to="#">🌐BN</NavLink> </li></div>
                    

@@ -7,6 +7,8 @@ import Textslider from '../../../Components/Textslider'
 
 
 
+
+
 export default function Home() {
   return (
     <div> 
@@ -18,6 +20,7 @@ export default function Home() {
 <SectionTitle />
 
 <Footer />
+
 
 
     </div>

@@ -28,8 +28,15 @@ const footerItem = [
 
   <div className='footer-container' >
   <div className="left">
-   <a href="/"><h1>Newswired </h1></a>
+   <a href="/"><h1> SUNRISE </h1>
+   
+
+   <h6 style={{color:'white'}}>Sunrise For Your Faithfulness</h6>
+   </a>
+  
    </div>
+  
+
    <div >
    <ul className='right-menu'>
         {footerItem.map(({title,Path})=>(
