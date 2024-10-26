@@ -8,7 +8,7 @@ function useFetch(url) {
 
   useEffect(() => {
     axios.get(url)
-    .then((res) => {
+    .then((res) => {   
       setData(res.data); // Axios directly returns the data here
       setIsLoading(false);
       setError(null);

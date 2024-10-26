@@ -6,7 +6,7 @@ const usersRegisterModal = require('./Models/usersRegister')
 const contactMessageModal =require('./Models/Contact')
 const HeaderNewsModal =require ('./Models/HeaderNews')
 const textModal =require('./Models/richTextEditor');
-
+const SliderNewsModal=require('./Models/SliderNews');
 const app = express()
 app.use(express.json())
 app.use(cors());
@@ -51,6 +51,12 @@ app.post("/admin/headernews",(req,res)=>{
     .catch(err => res.json(err))
 });
 
+app.post("/admin/adminSliderText",(req,res)=>{
+    SliderNewsModal.create(req.body)
+    .then(users =>res.json(users))
+    .catch(err => res.json(err))
+});
+
 app.get("/register",(req,res)=>{
     usersRegisterModal.find()
     .then (users=> res.json(users))
@@ -69,6 +75,12 @@ app.get("/contact", (req, res) => {
 
 app.get("/admin/headernews",(req,res)=>{
     HeaderNewsModal.findOne().sort({ _id: -1 })
+    .then(news => res.json(news))
+    .catch(err => res.json(err))
+});
+
+app.get("/admin/adminSliderText",(req,res)=>{
+    SliderNewsModal.findOne().sort({ _id: -1 })
     .then(news => res.json(news))
     .catch(err => res.json(err))
 });

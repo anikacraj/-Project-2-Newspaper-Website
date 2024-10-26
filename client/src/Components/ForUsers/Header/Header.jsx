@@ -1,11 +1,11 @@
 import React, {useEffect, useState } from 'react';
 // import {FaFacebook,FaAffiliatetheme} from 'react-icons/fa'
-import './Header.css';
+
 import { Link, NavLink } from 'react-router-dom';
 import axios from 'axios'
 import useFetch from '../../../Pages/AdminPanel/Fetch/useFetch';
 
-
+import './Header.css';
 
 const date =new Date();
  const getDate =date.getDate();
@@ -34,6 +34,9 @@ function Header() {
 
 
     const {data,isLoading,error} =useFetch("http://localhost:3004/admin/headernews");
+
+
+   
 
    
 useEffect (()=>{
