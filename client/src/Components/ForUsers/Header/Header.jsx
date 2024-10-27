@@ -34,6 +34,7 @@ function Header() {
 
 
     const {data,isLoading,error} =useFetch("http://localhost:3004/admin/headernews");
+   
 
 
    

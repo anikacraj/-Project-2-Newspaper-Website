@@ -9,7 +9,9 @@ import './ForUsers/TextSlider.css'
 
 function Textslider() {
 
-  const {data,isLoading,error} =useFetch("http://localhost:3004/admin/adminSliderText");
+  
+
+  const {data,isLoading,error} =useFetch("http://localhost:3004/admin/adminTextSlider");
 
   return (
 
@@ -22,33 +24,35 @@ function Textslider() {
 
        <div className="slidertext"> 
        
-       <div class="gole"></div><h4>{data.messageOne}</h4>
+       <div class="gole"></div><h4>{data.newsOne}</h4>
     
-     <div class="gole"></div><h4> {data.messageTwo}</h4>
-     <div class="gole"></div> <h4>{data.messageThree}</h4>
-     <div class="gole"></div> <h4>{data.messageFour}</h4>
+     <div class="gole"></div><h4> {data.newsTwo}</h4>
+     <div class="gole"></div> <h4>{data.newsThree}</h4>
+     <div class="gole"></div> <h4>{data.newsFour}</h4>
      </div>
-     
-   
-      
 
-     <div className="slidertext"> <div class="gole">
-      </div> 
-     <h4></h4>
-       <div class="gole"></div>
-       <h4>This is a newspaper website</h4>
-      <div class="gole"></div><h4>This is a news website</h4>
-     
+     <div className="slidertext"> 
+       
+       <div class="gole"></div><h4>{data.newsOne}</h4>
+    
+     <div class="gole"></div><h4> {data.newsTwo}</h4>
+     <div class="gole"></div> <h4>{data.newsThree}</h4>
+     <div class="gole"></div> <h4>{data.newsFour}</h4>
      </div>
-     <div className="slidertext"> <div class="gole">
-      </div> 
-     <h4>This is a nice website</h4>
-       <div class="gole"></div>
-       <h4>This is a newspaper website</h4>
-      <div class="gole"></div><h4>This is a news website</h4>
-     
+
+
+     <div className="slidertext"> 
+       
+       <div class="gole"></div><h4>{data.newsOne}</h4>
+    
+     <div class="gole"></div><h4> {data.newsTwo}</h4>
+     <div class="gole"></div> <h4>{data.newsThree}</h4>
+     <div class="gole"></div> <h4>{data.newsFour}</h4>
      </div>
-      </div>
+
+
+
+     </div>
     </div>
 
     

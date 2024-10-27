@@ -2,13 +2,14 @@
 .movingtext{
     
     height: 30px;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     position: relative;
+    z-index: 100;
    
 }
 .slider{
-  
+   
 
     overflow-x: auto;
     white-space: nowrap;
@@ -21,7 +22,7 @@
     animation-name: anim;
     animation-timing-function: linear;
   
-    animation-duration: 10s;
+    animation-duration: 30s;
     animation-iteration-count: infinite;
     }
     .gole{
