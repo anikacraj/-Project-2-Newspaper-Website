@@ -9,7 +9,7 @@ function ShowNewsLetter() {
 
   return (
     <div>
-      <h1>Show Letter News</h1>
+    
       {data.map((letter, index) => (
         <div key={index}>
         

@@ -6,16 +6,20 @@
    
 }
 .th{
-    border: 1px solid rgb(41, 0, 249);
+    border: 2px solid rgb(23, 22, 26);
     height: 15px;
     background-color: gray;
     color: white;
     border-radius: 2px;
+    padding: 6px;
 }
 .tr{
     border: 1px solid black;
 }
 .td{
+    padding: 7px;
     text-align: center;
+    /* background-color: rgba(113, 37, 80, 0.514); */
+    color: black;
 }
 

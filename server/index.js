@@ -25,6 +25,14 @@ app.post ("/register",(req,res)=>{
 .catch(err => res.json(err))
 });
 
+
+app.post ("/login",(req,res)=>{
+    adminLoginModal.create(req.body)
+.then(users => res.json(users))
+.catch(err => res.json(err))
+});
+
+
 app.post ("/contact",(req,res)=>{
     contactMessageModal.create(req.body)
     
@@ -49,9 +57,13 @@ app.post("/admin/headernews",(req,res)=>{
     HeaderNewsModal.create(req.body)
     .then(users =>res.json(users))
     .catch(err => res.json(err))
+
+
 });
 
-app.post("/admin/adminSliderText",(req,res)=>{
+
+
+app.post("/admin/adminTextSlider",(req,res)=>{
     SliderNewsModal.create(req.body)
     .then(users =>res.json(users))
     .catch(err => res.json(err))
@@ -79,7 +91,7 @@ app.get("/admin/headernews",(req,res)=>{
     .catch(err => res.json(err))
 });
 
-app.get("/admin/adminSliderText",(req,res)=>{
+app.get("/admin/adminTextSlider",(req,res)=>{
     SliderNewsModal.findOne().sort({ _id: -1 })
     .then(news => res.json(news))
     .catch(err => res.json(err))

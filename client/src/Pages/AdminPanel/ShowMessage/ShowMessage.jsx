@@ -23,12 +23,16 @@ function ShowMessage() {
 
   return (
     <div>
-      <h1 style={{textAlign:'center'}}>Contact Message</h1>
+  <div style={{backgroundColor:'gray', paddingTop:'10px '}}>
 
-      <div className="search-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }}>
-        <SearchBox onSearch={handleSearch} />
-        <span style={{ fontSize: '26px',fontWeight:'300',marginLeft:"8px" }}> Results: {filterName.length}/{data ? data.length : 0}</span>
-      </div>
+  <h1 style={{textAlign:'center', color:'white'}}>Contact Message</h1>
+
+<div className="search-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',
+   marginBottom: '10px', marginLeft:'145px'}}>
+  <SearchBox onSearch={handleSearch} />
+  <span style={{ fontSize: '26px',fontWeight:'300',marginLeft:"8px", color:'white' }}> Results: {filterName.length}/{data ? data.length : 0}</span>
+</div>
+  </div>
 
 
       <div>

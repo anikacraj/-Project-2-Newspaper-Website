@@ -21,14 +21,23 @@ function ShowUsers() {
     setFilterName(newData);
   };
 
+  const handleDelete=(e)=>{
+alert("are you sure ?")
+
+  }
+
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Show all Users</h1>
+      <div style={{backgroundColor:'gray', paddingTop:'10px '}}>
 
-      <div className="search-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }}>
-        <SearchBox onSearch={handleSearch} />
-        <span style={{ fontSize: '26px',fontWeight:'300',marginLeft:"8px" }}> Results: {filterName.length}/{data ? data.length : 0}</span>
-      </div>
+<h1 style={{textAlign:'center', color:'white'}}>Users Display</h1>
+
+<div className="search-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',
+ marginBottom: '10px', marginLeft:'145px'}}>
+<SearchBox onSearch={handleSearch} />
+<span style={{ fontSize: '26px',fontWeight:'300',marginLeft:"8px", color:'white' }}> Results: {filterName.length}/{data ? data.length : 0}</span>
+</div>
+</div>
 
       <div>
         <table className='table'>
@@ -36,6 +45,7 @@ function ShowUsers() {
             <tr className='tr'>
               <th className='th'>Name</th>
               <th className='th'>Email</th>
+              <th className='th'>Edit</th>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +54,7 @@ function ShowUsers() {
                 <tr className='tr' key={index}>
                   <td className='td'>{user.name}</td>
                   <td className='td'>{user.email}</td>
+                  <button  onClick={handleDelete}  style={{padding:'2px' ,marginTop:'4px'}}>Delete User</button>
                 </tr>
               ))
             }

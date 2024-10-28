@@ -5,10 +5,10 @@ import useFetch from '../Fetch/useFetch';
 
 function AdminTextslider() {
 
-    const [messageOne, setmessageOne] = useState('');   
-  const [messageTwo, setmessageTwo] = useState(''); 
-  const [messageThree, setmessageThree] = useState(''); 
-  const [messageFour, setmessageFour] = useState(''); 
+  const [newsOne, setNewsOne] = useState('');   
+  const [newsTwo, setNewsTwo] = useState(''); 
+  const [newsThree, setNewsThree] = useState(''); 
+  const [newsFour, setNewsFour] = useState(''); 
   
   const [wordCountOne, setWordCountOne] = useState(0);
   const [wordCountTwo, setWordCountTwo] = useState(0);
@@ -46,7 +46,7 @@ function AdminTextslider() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3004/admin/adminTextSlider', { messageOne, messageTwo, messageThree, messageFour })
+    axios.post('http://localhost:3004/admin/adminTextSlider', { newsOne, newsTwo, newsThree, newsFour })
       .then(result => {
         console.log(result);
         location.reload();
@@ -83,9 +83,9 @@ function AdminTextslider() {
             <textarea className='textarea'
               name="news1"
               id="messageOne"
-              value={messageOne}
+              value={newsOne}
               required
-              onChange={(e) => handleWordLimit(e.target.value, setmessageOne, setWordCountOne)}
+              onChange={(e) => handleWordLimit(e.target.value, setNewsOne, setWordCountOne)}
               rows="3" cols="40" />
             <p>{wordCountOne}/{maxWords} words</p>
 
@@ -93,9 +93,9 @@ function AdminTextslider() {
             <textarea className='textarea'
               name="news2"
               id="messageTwo"
-              value={messageTwo}
+              value={newsTwo}
               required
-              onChange={(e) => handleWordLimit(e.target.value, setmessageTwo, setWordCountTwo)}
+              onChange={(e) => handleWordLimit(e.target.value, setNewsTwo, setWordCountTwo)}
               rows="3" cols="40" />
             <p>{wordCountTwo}/{maxWords} words</p>
 </div>
@@ -104,9 +104,9 @@ function AdminTextslider() {
             <textarea className='textarea'
               name="news3"
               id="messageThree"
-              value={messageThree}
+              value={newsThree}
               required
-              onChange={(e) => handleWordLimit(e.target.value, setmessageThree, setWordCountThree)}
+              onChange={(e) => handleWordLimit(e.target.value, setNewsThree, setWordCountThree)}
               rows="3" cols="40" />
             <p>{wordCountThree}/{maxWords} words</p>
 
@@ -114,9 +114,9 @@ function AdminTextslider() {
             <textarea className='textarea'
               name="news4"
               id="messageFour"
-              value={messageFour}
+              value={newsFour}
               required
-              onChange={(e) => handleWordLimit(e.target.value, setmessageFour, setWordCountFour)}
+              onChange={(e) => handleWordLimit(e.target.value, setNewsFour, setWordCountFour)}
               rows="3" cols="40"
               
               />
@@ -133,10 +133,10 @@ function AdminTextslider() {
   
  
     <div  style={{ display: 'flex', gap: '10px' }}>
-      <div className='showHeaderNews'>{data.messageOne}   <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
-      <div className='showHeaderNews'>{data.messageTwo}   <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
-      <div className='showHeaderNews'>{data.messageThree} <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
-      <div className='showHeaderNews'>{data.messageFour}  <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
+      <div className='showHeaderNews'>{data.newsOne}   <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
+      <div className='showHeaderNews'>{data.newsTwo}   <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
+      <div className='showHeaderNews'>{data.newsThree} <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
+      <div className='showHeaderNews'>{data.newsFour}  <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
     </div> 
 
 

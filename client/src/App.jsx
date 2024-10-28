@@ -25,6 +25,7 @@ import PrivacyPolicy from './Pages/ForUsers/PrivacyPolicy/PrivacyPolicy'
 import Ebook from './Pages/ForUsers/Ebook/Ebook'
 import ShowNewsLetter from './Pages/AdminPanel/ShowNewsLetter/ShowNewsLetter'
 import AdminTextslider from './Pages/AdminPanel/AdminTextSlider/AdminTextslider'
+// import NewsSlider from './Components/ForUsers/NewsSlider/NewsSlider'
 
 
 
@@ -47,16 +48,17 @@ const data ="check data "
 
  <Route path='/' element={<Home />}>  </Route>
  
- <Route path='national' element={<NationalPage />} /> 
- <Route path='international' element={<InternationalPage />} /> 
- <Route path='football' element={<Football />} />
- <Route path='cricket' element={<Cricket />} />
- <Route path='business' element={<Business />} />
-  <Route path='advertisment' element={<Advertisment />} /> 
- <Route path='newsletter' element={<NewsLetter />} /> 
- <Route path='commentpolicy' element={<CommentPOlicy />} />
- <Route path='privacy' element={<PrivacyPolicy />} /> 
- <Route path='ebook' element={<Ebook />} /> 
+ <Route path='/national' element={<NationalPage />} /> 
+ <Route path='/international' element={<InternationalPage />} /> 
+ <Route path='/football' element={<Football />} />
+ <Route path='/cricket' element={<Cricket />} />
+ <Route path='/business' element={<Business />} />
+  <Route path='/advertisment' element={<Advertisment />} /> 
+ <Route path='/newsletter' element={<NewsLetter />} /> 
+ <Route path='/commentpolicy' element={<CommentPOlicy />} />
+ <Route path='/privacy' element={<PrivacyPolicy />} /> 
+ <Route path='/ebook' element={<Ebook />} /> 
+
 
 
 
