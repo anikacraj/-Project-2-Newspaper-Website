@@ -1,55 +1,41 @@
-import React,{useEffect, useState} from 'react'
-import './AdSlider.css'
+import React, { useEffect, useState } from 'react';
+import './AdSlider.css';
 
 function AdSlider() {
   const colors = ["#0088FE", "#00C49F", "#FFBB28"];
-  const delay=2500;
-const [index,setIndex]=useState(0);
+  const delay = 2500;
+  const [index, setIndex] = useState(0);
 
-useEffect(() => {
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIndex((prevIndex) => (prevIndex === colors.length - 1 ? 0 : prevIndex + 1));
+    }, delay);
 
- 
-  const timeout = setTimeout(() => {
-    setIndex((prevIndex) =>
-       (prevIndex === 
-        colors.length - 1 ? 0 : prevIndex + 1));
-  }, delay);
-
-  return () => clearTimeout(timeout);
-}, [index]);
-
+    return () => clearTimeout(timeout);
+  }, [index]);
 
   return (
-    <div>
-<div className='slideshow'>
-  <div className='slideshowSlider' 
-  style={{ transform: `translate3d(${-index * 100}%, 0, 0)
-  ` }}
->
+    <div className="slideshow">
+      <div
+        className="slideshowSlider"
+        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+      >
+        {colors.map((color, idx) => (
+          <div className="slide" key={idx} style={{ backgroundColor: color }}></div>
+        ))}
+      </div>
 
-{
-  colors.map((color,index)=>(
-<div className='slide' key={index} 
- style={{backgroundColor:color}}></div>
-
-  ))
-
-}
-
-
-
-  </div>
-
-  <div className='dots'>
-{colors.map((_,idx)=>(
-  <div key={idx} className='dot'></div>
-))}
-</div>
-</div>
-
-
+      <div className="dots">
+        {colors.map((_, idx) => (
+          <div
+            key={idx}
+            className={`dot${index === idx ? " active" : ""}`}
+            onClick={() => setIndex(idx)}
+          ></div>
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default AdSlider
+export default AdSlider;

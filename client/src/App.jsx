@@ -25,6 +25,7 @@ import PrivacyPolicy from './Pages/ForUsers/PrivacyPolicy/PrivacyPolicy'
 import Ebook from './Pages/ForUsers/Ebook/Ebook'
 import ShowNewsLetter from './Pages/AdminPanel/ShowNewsLetter/ShowNewsLetter'
 import AdminTextslider from './Pages/AdminPanel/AdminTextSlider/AdminTextslider'
+import MessengerChatUser from './Pages/ForUsers/Messenger/MessengerChatUser'
 
 
 
@@ -57,6 +58,7 @@ const data ="check data "
  <Route path='/commentpolicy' element={<CommentPOlicy />} />
  <Route path='/privacy' element={<PrivacyPolicy />} /> 
  <Route path='/ebook' element={<Ebook />} /> 
+ <Route path='/MessengerChatUser' element={<MessengerChatUser />} /> 
 
 
 

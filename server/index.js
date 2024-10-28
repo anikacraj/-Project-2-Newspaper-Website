@@ -26,11 +26,6 @@ app.post ("/register",(req,res)=>{
 });
 
 
-app.post ("/login",(req,res)=>{
-    adminLoginModal.create(req.body)
-.then(users => res.json(users))
-.catch(err => res.json(err))
-});
 
 
 app.post ("/contact",(req,res)=>{
