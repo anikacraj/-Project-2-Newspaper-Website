@@ -25,7 +25,6 @@ import PrivacyPolicy from './Pages/ForUsers/PrivacyPolicy/PrivacyPolicy'
 import Ebook from './Pages/ForUsers/Ebook/Ebook'
 import ShowNewsLetter from './Pages/AdminPanel/ShowNewsLetter/ShowNewsLetter'
 import AdminTextslider from './Pages/AdminPanel/AdminTextSlider/AdminTextslider'
-// import NewsSlider from './Components/ForUsers/NewsSlider/NewsSlider'
 
 
 
