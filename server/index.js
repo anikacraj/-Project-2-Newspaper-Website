@@ -7,6 +7,12 @@ const contactMessageModal =require('./Models/Contact')
 const HeaderNewsModal =require ('./Models/HeaderNews')
 const textModal =require('./Models/richTextEditor');
 const SliderNewsModal=require('./Models/SliderNews');
+const textMessageModal=require('./Models/Text');
+const adminTextMessageModal=require('./Models/AdminText');
+
+
+
+
 const app = express()
 app.use(express.json())
 app.use(cors());
@@ -63,6 +69,33 @@ app.post("/admin/adminTextSlider",(req,res)=>{
     .then(users =>res.json(users))
     .catch(err => res.json(err))
 });
+
+app.post('/',(req,res)=>{
+    textMessageModal.create(req.body)
+    .then(msgs=>res.json(msgs))
+    .catch(err=>res.json(err))
+
+})
+
+app.post('/admin/home',(req,res)=>{
+    adminTextMessageModal.create(req.body)
+    .then(msgs=>res.json(msgs))
+    .catch(err=>res.json(err))
+
+})
+
+app.get('/',(req,res)=>{
+    textMessageModal.find()
+    .then(msgs=>res.json(msgs))
+    .catch(err=>res.json(err))
+})
+
+app.get('/admin/home',(req,res)=>{
+    adminTextMessageModal.find()
+    .then(msgs=>res.json(msgs))
+    .catch(err=>res.json(err))
+})
+
 
 app.get("/register",(req,res)=>{
     usersRegisterModal.find()

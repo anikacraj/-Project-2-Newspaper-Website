@@ -7,6 +7,7 @@ import Textslider from '../../../Components/Textslider'
 import AdSlider from '../../../Components/ForUsers/ADslider/AdSlider'
 import TopAds from '../../../Components/ForUsers/TopAdd/TopAds'
 import Messenger from '../Messenger/Messenger'
+import CommentSection from '../../../Components/ForUsers/CommentSection/CommentSection'
 
 
 
@@ -24,7 +25,7 @@ export default function Home() {
 <UpBody />
 
 <SectionTitle />
-
+<CommentSection />
 <Footer />
 
 

@@ -9,7 +9,7 @@ function useFetch(url) {
   useEffect(() => {
     axios.get(url)
     .then((res) => {   
-      setData(res.data); // Axios directly returns the data here
+      setData(res.data); 
       setIsLoading(false);
       setError(null);
     })
@@ -19,7 +19,7 @@ function useFetch(url) {
     });
 }, [url]);
 
-  return {data,isLoading,error}; // Return the fetched data
+  return {data,isLoading,error}; 
 }
 
 export default useFetch;
