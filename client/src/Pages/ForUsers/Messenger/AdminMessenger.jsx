@@ -25,6 +25,7 @@ function AdminMessenger() {
     axios.post('http://localhost:3004/admin/home', { adminMessage })
       .then(() => {
         setAdminMessage('');
+       
       })
       .catch(err => {
         console.error(err);
@@ -36,6 +37,8 @@ function AdminMessenger() {
     ...(userMessages || []).map(msg => ({ text: msg.message, sender: 'User', timestamp: msg.timestamp })),
     ...(adminMessages || []).map(msg => ({ text: msg.adminMessage, sender: 'Admin', timestamp: msg.timestamp }))
   ].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)); // Sort by timestamp (earliest first)
+
+
 
   return (
     <div className='container-chatbox'>
@@ -55,7 +58,7 @@ function AdminMessenger() {
                 <p>Error loading messages</p>
               ) : (
                 combinedMessages.map((msg, index) => (
-                  <div key={index} style={{ textAlign: msg.sender === 'User' ? 'right' : 'left', color: 'white' }}>
+                  <div key={index} style={{ textAlign: msg.sender === 'User' ? 'left' : 'right', color: 'white' }}>
                     <span style={{ color: msg.sender === 'User' ? 'gold' : 'yellow', fontWeight: 'bold' }}>
                       {msg.sender}
                     </span>

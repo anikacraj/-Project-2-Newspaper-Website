@@ -71,7 +71,7 @@ function Header() {
             <div className="middleBody">
 
            <div className="newsletter">  <a href="/admin/headernews">  <h4>Header News </h4>  </a>  </div>
-            <div className="newsletter"> <a href=""> <h4> Archives </h4>   </a>  </div>
+            <div className="newsletter"> <a href="/uploadSliderAds"> <h4> Slider Ads </h4>   </a>  </div>
             <div className="newsletter"> <a href="/adminTextSlider"> <h4>Slider Text </h4>  </a> </div>
             <div className="newsletter"> <a href=""> <h4> Contact Us </h4> </a>  </div>
            </div>

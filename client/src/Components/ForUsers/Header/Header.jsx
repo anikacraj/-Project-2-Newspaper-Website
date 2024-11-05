@@ -35,7 +35,11 @@ function Header() {
 
     const {data,isLoading,error} =useFetch("http://localhost:3004/admin/headernews");
    
+const [light,setLight]=useState(false);
 
+const lightChange=()=>{
+  setLight(!light);
+}
 
    
 
@@ -56,7 +60,7 @@ const handleLogOut = () => {
 
 
     return (
-        <div>
+        <div className={light ? "light-green-bg" : "white-bg"}  >
             <nav>
                 <div className="firstRow">
                     <div className="logo">
@@ -137,7 +141,7 @@ const handleLogOut = () => {
                </div>
           
                     <div  className="right-menuitems"><li><NavLink to="/ebook">🖨️E-Book</NavLink> </li></div>
-                    <div  className="right-menuitems"><li><NavLink to="#">🌐BN</NavLink> </li></div>
+                    <div  onClick={lightChange}  className="right-menuitems" ><li>🌐BN </li></div>
                    
                     <div className="right-menuitems"><li><NavLink to="/contact">📞Contact Us</NavLink></li></div>
                    </div>

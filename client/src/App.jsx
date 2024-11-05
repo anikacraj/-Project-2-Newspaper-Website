@@ -25,6 +25,7 @@ import PrivacyPolicy from './Pages/ForUsers/PrivacyPolicy/PrivacyPolicy'
 import Ebook from './Pages/ForUsers/Ebook/Ebook'
 import ShowNewsLetter from './Pages/AdminPanel/ShowNewsLetter/ShowNewsLetter'
 import AdminTextslider from './Pages/AdminPanel/AdminTextSlider/AdminTextslider'
+import AdminSelectSliderAds from './Pages/AdminPanel/SelectSliderAds/AdminSelectSliderAds'
 
 
 
@@ -79,6 +80,7 @@ const data ="check data "
  <Route path='/admin/headernews' element={<AdminHeaderNews />}> </Route>
  <Route path='/showNewsLetter' element={<ShowNewsLetter />}> </Route>
  <Route path='/adminTextSlider' element={<AdminTextslider />}> </Route>
+ <Route path='/uploadSliderAds' element={<AdminSelectSliderAds />}> </Route>
 
 
 

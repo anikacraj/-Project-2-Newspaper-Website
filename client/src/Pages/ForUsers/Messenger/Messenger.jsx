@@ -24,6 +24,7 @@ function Messenger() {
     axios.post('http://localhost:3004', { message: text })
       .then(() => {
         setText('');
+        
       })
       .catch(err => {
         console.error(err);
@@ -35,6 +36,9 @@ function Messenger() {
     ...(userMessages || []).map(msg => ({ text: msg.message, sender: 'You', timestamp: msg.timestamp })),
     ...(adminMessages || []).map(msg => ({ text: msg.adminMessage, sender: 'Admin', timestamp: msg.timestamp }))
   ].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)); // Sort by timestamp (earliest first)
+
+  
+
 
   return (
     <div className='container-chatbox'>
