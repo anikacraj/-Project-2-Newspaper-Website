@@ -3,6 +3,7 @@ const multer = require("multer");
 const path = require("path");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const bcrypt = require('bcrypt');
 
 const usersRegisterModal = require("./Models/usersRegister");
 const contactMessageModal = require("./Models/Contact");
@@ -27,6 +28,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // Routes for various operations
+
 app.post("/register", (req, res) => {
   usersRegisterModal.create(req.body)
     .then((users) => res.json(users))
@@ -78,11 +80,34 @@ app.get("/admin/headernews", (req, res) => {
     .catch((err) => res.json(err));
 });
 
+app.put("/admin/headernews",(req,res)=>{
+  const{ messageOne,messageTwo,messageThree,messageFour} =req.body;
+
+  HeaderNewsModal.findOneAndUpdate({},{messageOne,messageTwo,messageThree,messageFour},{new:true,sort:{_id:-1}})
+.then((updatedNews)=>res.json(updatedNews))
+.catch((err)=>res.json(err));
+
+})
+
+
+
+
+
 app.post("/admin/adminTextSlider", (req, res) => {
   SliderNewsModal.create(req.body)
     .then((news) => res.json(news))
     .catch((err) => res.json(err));
 });
+
+app.put("/admin/adminTextSlider",(req,res)=>{
+  const{newsOne,newsTwo,newsThree,newsFour} =req.body;
+
+  SliderNewsModal.findOneAndUpdate({},{newsOne,newsTwo,newsThree,newsFour},{new:true,sort:{_id:-1}})
+.then((updatedNews)=>res.json(updatedNews))
+.catch((err)=>res.json(err));
+
+})
+
 
 app.get("/admin/adminTextSlider", (req, res) => {
   SliderNewsModal.findOne().sort({ _id: -1 })

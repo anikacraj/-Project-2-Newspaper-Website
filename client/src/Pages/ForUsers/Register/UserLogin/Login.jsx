@@ -13,11 +13,14 @@ function Login() {
     axios.post('http://localhost:3004/login', { email, password })
       .then(result => {
         if (result.data === "success") {
+          // Set user info in localStorage and trigger onLogin
           localStorage.setItem('user', JSON.stringify({
             email: email,
             loginDate: new Date().toISOString()
           }));
-          navigate('/'); 
+          localStorage.setItem("isAuthenticated", "true");
+        
+          navigate('/');
         } else {
           alert('Login failed. Please check your credentials.');
         }

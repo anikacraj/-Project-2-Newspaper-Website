@@ -1,49 +1,93 @@
-.form-box{
-    height: 20px;
-    width: 100%;
-   
+.form-box {
+    height: auto;
+    width: 60%;
+   width: 500px;
     margin: 0 auto;
+    padding: 20px;
+    background-color: #2c3e50;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
 }
 
-
-.AdminheaderNews{
+.AdminheaderNews {
     display: flex;
-justify-content: center;
-align-items: center;
-gap: 3vh;
-background-color: #344054e8;
-color: aliceblue;
-border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    gap: 7vw;
+    background-color: #344054e8;
+    color: aliceblue;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
 
+.label {
+    color: #f8f9fa;
+    font-weight: bold;
+    font-size: 16px;
+    flex-shrink: 0;
 }
-.label{
+
+.buttonHeaderNews {
+    height: 50px;
+    width: 60%;
+    max-width: 200px;
+    background-color: #1aff008f;
+    border: none;
+    border-radius: 5px;
     color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.buttonHeaderNews{
-    height: 60px;
-    width: 200px;
-    background-color: rgba(26, 255, 0, 0.568);
-    margin-top: 4vh;
-   border-radius: 5px;
-   color: white;
-   cursor: pointer;
-font-size: 18px;
-font-weight: 500;
+
+.buttonHeaderNews:hover {
+    background-color: #1ae30b;
+}
+
+.textarea {
+    width: 100%;
+    resize: none;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    border: 2px solid #2c2c2c;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 16px;
+    color: #fffdfd;
+    background-color: #1101015d;
+    text-align: center;
+    font-size: 18px;
     
- 
-    
 }
-.textarea{
-    margin-top: 2vh;
-    margin-bottom: 3vh;
-    border: 3px solid black;
-}
-.showHeaderNews{
-    width: 25%;
+
+.showHeaderNews {
+    width: 28%;
     text-align: left;
-    border: 1px solid black;
-    border-radius: 3%;
-  padding: 5px 5px;
-  display: flex;
-  justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    background-color: #f7f8fa;
+    color: #2c2c2c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.showHeaderNews button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.showHeaderNews button:hover {
+    background-color: #45a049;
 }

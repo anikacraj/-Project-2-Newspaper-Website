@@ -67,7 +67,7 @@ function Messenger() {
                   </div>
                 ))
               )}
-              <form className='textarea' onSubmit={handleSubmit}>
+              <form className='msgarea' onSubmit={handleSubmit}>
                 <textarea
                   rows='1.5'
                   cols='27'

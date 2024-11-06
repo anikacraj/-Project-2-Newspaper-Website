@@ -4,20 +4,32 @@ import axios from 'axios';
 import useFetch from '../Fetch/useFetch';
 
 function AdminHeaderNews() {
-  const [messageOne, setmessageOne] = useState('');   
-  const [messageTwo, setmessageTwo] = useState(''); 
-  const [messageThree, setmessageThree] = useState(''); 
-  const [messageFour, setmessageFour] = useState(''); 
+  const [messageOne, setMessageOne] = useState('');   
+  const [messageTwo, setMessageTwo] = useState(''); 
+  const [messageThree,setMessageThree] = useState(''); 
+  const [messageFour, setMessageFour] = useState(''); 
   
   const [wordCountOne, setWordCountOne] = useState(0);
   const [wordCountTwo, setWordCountTwo] = useState(0);
   const [wordCountThree, setWordCountThree] = useState(0);
   const [wordCountFour, setWordCountFour] = useState(0);
 
+
+
+const [isEditing,setIsEditing]=useState({
+messageOne:false,
+messageTwo:false,
+messageThree:false,
+messageFour:false
+})
+
+
+
+
   const [dayName, setDayName] = useState("");
   const [currentDate, setCurrentDate] = useState("");
   
-  const maxWords = 10;
+  const maxWords = 15;
 
   const handleWordLimit = (text, setText, setWordCount) => {
     const words = text.trim().split(/\s+/);
@@ -27,7 +39,7 @@ function AdminHeaderNews() {
       const truncatedWords = words.slice(0, maxWords).join(' ');
       setText(truncatedWords);
     } else {
-      setText(text);
+      setText(text);    
     }
 
     setWordCount(Math.min(wordCount, maxWords));
@@ -43,6 +55,40 @@ function AdminHeaderNews() {
     setDayName(dayNameString);
     setCurrentDate(currentDateString);
 },[]);
+
+
+
+const {data,isLoading,error} =useFetch("http://localhost:3004/admin/headernews");
+
+useEffect(()=>{
+  if (data) {
+    setMessageOne(data.messageOne)
+    setMessageTwo(data.messageTwo)
+    setMessageThree(data.messageThree)
+    setMessageFour(data.messageFour)
+    
+  }
+},[data])
+
+
+const handleEditToggle = (field) => {
+  setIsEditing((prev) => ({
+    ...prev,
+    [field]: !prev[field]
+  }));
+};
+
+const handleSave = (field, text) => {
+  axios.put('http://localhost:3004/admin/headernews', { [field]: text })
+    .then(result => {
+      setIsEditing((prev) => ({ ...prev, [field]: false }));
+      alert("Update successful");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,12 +106,10 @@ function AdminHeaderNews() {
     alert("successfully done");
   }
 
-  const {data,isLoading,error} =useFetch("http://localhost:3004/admin/headernews");
+ 
 
 
-  const handleEdit=()=>{
 
-  }
 
 
   return (
@@ -87,19 +131,36 @@ function AdminHeaderNews() {
               id="messageOne"
               value={messageOne}
               required
-              onChange={(e) => handleWordLimit(e.target.value, setmessageOne, setWordCountOne)}
-              rows="3" cols="40" />
+              onChange={(e) => handleWordLimit(e.target.value, setMessageOne, setWordCountOne)}
+              rows="1.5" cols="40" readOnly={!isEditing.messageOne} />
             <p>{wordCountOne}/{maxWords} words</p>
+         
+            {isEditing.messageOne ? (
+              <button onClick={() => handleSave("messageOne", messageOne)}>Save</button>
+            ) : (
+              <button onClick={() => handleEditToggle("messageOne")}>Edit</button>
+            )}
+          </div>
 
+
+          <div className="AdminheaderNews">
             <label className='label' htmlFor="messageTwo">Write News Two:</label>
             <textarea className='textarea'
               name="news2"
               id="messageTwo"
               value={messageTwo}
               required
-              onChange={(e) => handleWordLimit(e.target.value, setmessageTwo, setWordCountTwo)}
-              rows="3" cols="40" />
+              onChange={(e) => handleWordLimit(e.target.value, setMessageTwo, setWordCountTwo)}
+              rows="1.5" cols="10" 
+              readOnly={!isEditing.messageTwo}
+              />
             <p>{wordCountTwo}/{maxWords} words</p>
+            {isEditing.messageTwo ? (
+              <button onClick={() => handleSave("messageTwo", messageTwo)}>Save</button>
+            ) : (
+              <button onClick={() => handleEditToggle("messageTwo")}>Edit</button>
+            )}
+
 </div>
 <div  className="AdminheaderNews">
             <label className='label' htmlFor="messageThree">Write News Three:</label>
@@ -108,24 +169,40 @@ function AdminHeaderNews() {
               id="messageThree"
               value={messageThree}
               required
-              onChange={(e) => handleWordLimit(e.target.value, setmessageThree, setWordCountThree)}
-              rows="3" cols="40" />
+              onChange={(e) => handleWordLimit(e.target.value, setMessageThree, setWordCountThree)}
+              rows="1.5" cols="40"
+              readOnly={!isEditing.messageThree}
+              />
             <p>{wordCountThree}/{maxWords} words</p>
+            {isEditing.messageThree ? (
+              <button onClick={() => handleSave("messageThree", messageThree)}>Save</button>
+            ) : (
+              <button onClick={() => handleEditToggle("messageThree")}>Edit</button>
+            )}
+          </div>
 
+
+          <div  className="AdminheaderNews">
             <label className='label' htmlFor="messageFour">Write News Four:</label>
             <textarea className='textarea'
               name="news4"
               id="messageFour"
               value={messageFour}
               required
-              onChange={(e) => handleWordLimit(e.target.value, setmessageFour, setWordCountFour)}
-              rows="3" cols="40"
-              
+              onChange={(e) => handleWordLimit(e.target.value, setMessageFour, setWordCountFour)}
+              rows="1.5" cols="40"
+              readOnly={!isEditing.messageFour}
               />
          
             <p>{wordCountFour}/{maxWords} words</p>
+            {isEditing.messageFour ? (
+              <button onClick={() => handleSave("messageFour", messageFour)}>Save</button>
+            ) : (
+              <button onClick={() => handleEditToggle("messageFour")}>Edit</button>
+            )}
+
             </div>
-           <center> <button className="buttonHeaderNews" type="submit" onClick={click}>Send Message</button></center>
+        
           </form>
           </div>
       </div>
@@ -134,11 +211,24 @@ function AdminHeaderNews() {
   <h1>Display News </h1>
   
  
-    <div  style={{ display: 'flex', gap: '10px' }}>
-      <div className='showHeaderNews'>{data.messageOne}   <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
-      <div className='showHeaderNews'>{data.messageTwo}   <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
-      <div className='showHeaderNews'>{data.messageThree} <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
-      <div className='showHeaderNews'>{data.messageFour}  <button style={{width:'80px', borderRadius:'8px'}} onClick={handleEdit}>Edit </button> </div>
+    <div  style={{ display: 'flex', gap: '10px', justifyContent:'center' }}>
+     
+    <div className='showHeaderNews'>
+          {data?.messageOne} <button onClick={() => handleEditToggle("messageOne")}>Edit</button>
+        </div>
+
+        <div className='showHeaderNews'>
+          {data?.messageTwo} <button onClick={() => handleEditToggle("messageTwo")}>Edit</button>
+        </div>
+
+        <div className='showHeaderNews'>
+          {data?.messageThree} <button onClick={() => handleEditToggle("messageThree")}>Edit</button>
+        </div>
+
+        <div className='showHeaderNews'>
+          {data?.messageFour} <button onClick={() => handleEditToggle("messageFour")}>Edit</button>
+        </div>
+
     </div> 
 
 

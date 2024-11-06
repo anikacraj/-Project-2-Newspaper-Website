@@ -57,11 +57,13 @@ function AdminSelectSliderAds() {
         <h2>Current Slider Images</h2>
 
 
-  <div style={{backgroundColor:'green'}}>
-  <div style={{ display: "flex", gap: "10px",marginLeft:'300px' }}>
-   <img src={`http://localhost:3004/uploads/${images.ImageOne}`} alt="Image One"    style={{width:'400px',height:'300px'}} />
-  <img src={`http://localhost:3004/uploads/${images.ImageTwo}`} alt="Image Two"     style={{width:'400px',height:'300px'}}/>
-  <img src={`http://localhost:3004/uploads/${images.ImageThree}`} alt="Image Three" style={{width:'400px',height:'300px'}}/>
+  <div style={{backgroundColor:'#353535'}}>
+  <div style={{ marginLeft:'30px', }}>
+   <img src={`http://localhost:3004/uploads/${images.ImageOne}`} alt="Image One"    style={{width:'900px',height:'200px' ,marginBottom:'10px' ,marginTop:'10px'}} />
+   <br />
+  <img src={`http://localhost:3004/uploads/${images.ImageTwo}`} alt="Image Two"     style={{width:'900px',height:'200px',marginBottom:'10px'   }}/>
+  <br />
+  <img src={`http://localhost:3004/uploads/${images.ImageThree}`} alt="Image Three" style={{width:'900px',height:'200px',marginBottom:'10px'}}/>
   
         </div>
   </div>
