@@ -3,7 +3,7 @@ const adminLogin =new mongoose.Schema({
     
     email:String,
     password:String,
-    signInDate:String,
+    logInDate:String,
 })
 
 const adminLoginModal = mongoose.model("adminLogin",adminLogin)
