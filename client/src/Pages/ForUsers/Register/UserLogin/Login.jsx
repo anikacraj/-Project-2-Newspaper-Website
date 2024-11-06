@@ -19,7 +19,11 @@ function Login() {
             loginDate: new Date().toISOString()
           }));
           localStorage.setItem("isAuthenticated", "true");
+<<<<<<< HEAD
         
+=======
+          onLogin();
+>>>>>>> c73d4d8283ec26becd679c84bc71f865a38fd2a9
           navigate('/');
         } else {
           alert('Login failed. Please check your credentials.');
@@ -29,6 +33,7 @@ function Login() {
         console.log(err);
       });
   };
+  
 
   return (
     <div>
