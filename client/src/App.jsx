@@ -22,16 +22,9 @@ import PrivacyPolicy from './Pages/ForUsers/PrivacyPolicy/PrivacyPolicy';
 import Ebook from './Pages/ForUsers/Ebook/Ebook';
 import ShowNewsLetter from './Pages/AdminPanel/ShowNewsLetter/ShowNewsLetter';
 import AdminTextSlider from './Pages/AdminPanel/AdminTextSlider/AdminTextslider';
-<<<<<<< HEAD
-import AdSlider from './Components/ForUsers/ADslider/AdSlider';
-
 import ProtectedRoute from '/ProtectedRoute';
 import AdminRoute from '/AdminRoute';
 import AdminSelectSliderAds from './Pages/AdminPanel/SelectSliderAds/AdminSelectSliderAds';
-=======
-import ProtectedRoute from '/ProtectedRoute';
-import AdminRoute from '/AdminRoute';
->>>>>>> c73d4d8283ec26becd679c84bc71f865a38fd2a9
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -149,17 +142,18 @@ function App() {
             </AdminRoute>
           }
         />
-<<<<<<< HEAD
-          <Route
+
+
+
+<Route
           path="/uploadSliderAds"
           element={
             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
-              <AdminSelectSliderAds />
+             <AdminSelectSliderAds />
             </AdminRoute>
           }
         />
-=======
->>>>>>> c73d4d8283ec26becd679c84bc71f865a38fd2a9
+
 
         {/* Fallback Route */}
         <Route path="*" element={<div>404 - Page Not Found</div>} />

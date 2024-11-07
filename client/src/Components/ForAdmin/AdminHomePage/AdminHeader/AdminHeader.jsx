@@ -26,7 +26,7 @@ function Header() {
                     <div className="logo">
                
                         <div className="name">
-                        <div> <img className='logoImage'  src="../../Media/logo.jpg" alt="" />  </div>
+                        <div> <img className='logoImage'  src="../../Media/red.png" alt="" />  </div>
                         </div>
                     </div>
                     </div>

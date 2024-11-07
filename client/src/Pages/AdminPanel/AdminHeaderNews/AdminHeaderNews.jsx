@@ -114,7 +114,7 @@ const handleSave = (field, text) => {
 
   return (
     <div >
-{dayName} {currentDate}
+<h4 style={{marginLeft:'16px',padding:'3px 3px', textShadow:'green' ,fontSize:'18p' }}>{dayName} {currentDate}</h4>
 
    <center> <h1>Header News </h1>
    
@@ -132,7 +132,7 @@ const handleSave = (field, text) => {
               value={messageOne}
               required
               onChange={(e) => handleWordLimit(e.target.value, setMessageOne, setWordCountOne)}
-              rows="1.5" cols="40" readOnly={!isEditing.messageOne} />
+              rows="2.5" cols="40" readOnly={!isEditing.messageOne} />
             <p>{wordCountOne}/{maxWords} words</p>
          
             {isEditing.messageOne ? (
@@ -151,7 +151,7 @@ const handleSave = (field, text) => {
               value={messageTwo}
               required
               onChange={(e) => handleWordLimit(e.target.value, setMessageTwo, setWordCountTwo)}
-              rows="1.5" cols="10" 
+              rows="2.5" cols="10" 
               readOnly={!isEditing.messageTwo}
               />
             <p>{wordCountTwo}/{maxWords} words</p>
@@ -170,7 +170,7 @@ const handleSave = (field, text) => {
               value={messageThree}
               required
               onChange={(e) => handleWordLimit(e.target.value, setMessageThree, setWordCountThree)}
-              rows="1.5" cols="40"
+              rows="2.5" cols="40"
               readOnly={!isEditing.messageThree}
               />
             <p>{wordCountThree}/{maxWords} words</p>
@@ -190,7 +190,7 @@ const handleSave = (field, text) => {
               value={messageFour}
               required
               onChange={(e) => handleWordLimit(e.target.value, setMessageFour, setWordCountFour)}
-              rows="1.5" cols="40"
+              rows="2.5" cols="40"
               readOnly={!isEditing.messageFour}
               />
          

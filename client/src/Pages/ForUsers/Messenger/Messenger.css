@@ -78,6 +78,7 @@
   bottom: 0;
   background-color: transparent;
   border-radius: 8px;
+  left: 0;
   margin-left: 16px;
 color: bisque;
 font-size: 18px;
@@ -87,6 +88,9 @@ padding-top: 3px;
 .messageArea::placeholder{
   color: aliceblue;
   
+}
+.msgarea{
+
 }
 
 .send{
