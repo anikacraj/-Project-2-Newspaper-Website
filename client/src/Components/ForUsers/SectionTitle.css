@@ -40,8 +40,8 @@
     position: absolute;
   margin-top: -20px;
   margin-left: -138px;
-    color: rgba(0, 0, 0, 0.05); /* Light shadow text */
-    z-index: -1;
+    color: rgba(0, 0, 0, 0.05); 
     font-size: 98px;
+   
   }
   

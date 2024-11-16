@@ -5,10 +5,14 @@ function UpBody() {
   return (
    <>
    <center>
-   <div className="Container-body" style={{backgroundColor :'red'}}>
+   <div className="Container-body" >
 
 
 <div className="items-div" id='items-div1'></div>
+<div className="items-div"></div>
+<div className="items-div"></div>
+<div className="items-div"></div>
+<div className="items-div"></div>
 <div className="items-div"></div>
 <div className="items-div"></div>
 <div className="items-div"></div>
@@ -19,10 +23,14 @@ function UpBody() {
    </center>
 
    <center>
-   <div className="Container-body" style={{backgroundColor :'red'}}>
+   <div className="Container-body" >
 
 
 <div className="items-div" id='items-div1'></div>
+<div className="items-div"></div>
+<div className="items-div"></div>
+<div className="items-div"></div>
+<div className="items-div"></div>
 <div className="items-div"></div>
 <div className="items-div"></div>
 <div className="items-div"></div>

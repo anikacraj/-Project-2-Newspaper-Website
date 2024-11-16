@@ -74,20 +74,20 @@ const handleLogOut = () => {
                     
    
             <div className='HeaderNews' >
-              <div style={{fontWeight:'300'}} className="header-News" >
+              <div style={{fontWeight:'300', fontSize:'14px'}} className="header-News" >
             {data.messageOne}
                
               </div>
-              <div  style={{fontWeight:'300'}} className="header-News" >
+              <div  style={{fontWeight:'300', fontSize:'14px'}}className="header-News" >
                {data.messageTwo}
                 <br />
                 
               </div>
-              <div  style={{fontWeight:'300'}} className="header-News" >
+              <div  style={{fontWeight:'300', fontSize:'14px'}} className="header-News" >
                 {data.messageThree}
            
               </div>
-              <div  style={{fontWeight:'300'}} className="header-News" id='header-News4' >
+              <div  style={{fontWeight:'300', fontSize:'14px'}} className="header-News" id='header-News4' >
                
                 {data.messageFour}
                

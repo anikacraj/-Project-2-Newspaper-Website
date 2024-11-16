@@ -19,12 +19,14 @@ function Messenger() {
     setIsChatboxOpen(false);
   };
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3004', { message: text })
       .then(() => {
         setText('');
-        
+        window.location.reload();
       })
       .catch(err => {
         console.error(err);

@@ -15,45 +15,56 @@ function Textslider() {
 
   return (
 
-    <div className="movingtext">
-
-      <div className="slider">
-
-     
-        
-
-       <div className="slidertext"> 
-       
-       <div class="gole"></div><h4>{data.newsOne}</h4>
-    
-     <div class="gole"></div><h4> {data.newsTwo}</h4>
-     <div class="gole"></div> <h4>{data.newsThree}</h4>
-     <div class="gole"></div> <h4>{data.newsFour}</h4>
-     </div>
-
-     <div className="slidertext"> 
-       
-       <div class="gole"></div><h4>{data.newsOne}</h4>
-    
-     <div class="gole"></div><h4> {data.newsTwo}</h4>
-     <div class="gole"></div> <h4>{data.newsThree}</h4>
-     <div class="gole"></div> <h4>{data.newsFour}</h4>
-     </div>
+    <div style={{display:'flex',justifyContent:'center'}}>
+      
+<div className='textHeading'><h4>HEADING NEWS</h4></div>
 
 
-     <div className="slidertext"> 
-       
-       <div class="gole"></div><h4>{data.newsOne}</h4>
-    
-     <div class="gole"></div><h4> {data.newsTwo}</h4>
-     <div class="gole"></div> <h4>{data.newsThree}</h4>
-     <div class="gole"></div> <h4>{data.newsFour}</h4>
-     </div>
+      <div className="movingtext">
+
+<div className="slider">
+
+
+  
+
+ <div className="slidertext"> 
+
+ <div class="gole"></div><h4>{data.newsOne}</h4>
+
+<div class="gole"></div><h4> {data.newsTwo}</h4>
+<div class="gole"></div> <h4>{data.newsThree}</h4>
+<div class="gole"></div> <h4>{data.newsFour}</h4>
+</div>
+
+<div className="slidertext"> 
+ 
+ <div class="gole"></div><h4>{data.newsOne}</h4>
+
+<div class="gole"></div><h4> {data.newsTwo}</h4>
+<div class="gole"></div> <h4>{data.newsThree}</h4>
+<div class="gole"></div> <h4>{data.newsFour}</h4>
+</div>
+
+
+<div className="slidertext"> 
+ 
+ <div class="gole"></div><h4>{data.newsOne}</h4>
+
+<div class="gole"></div><h4> {data.newsTwo}</h4>
+<div class="gole"></div> <h4>{data.newsThree}</h4>
+<div class="gole"></div> <h4>{data.newsFour}</h4>
+</div>
 
 
 
-     </div>
-    </div>
+</div>
+</div>
+      
+      </div> 
+
+
+
+   
 
     
   )
