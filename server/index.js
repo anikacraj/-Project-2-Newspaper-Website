@@ -13,7 +13,7 @@ const SliderNewsModal = require("./Models/SliderNews");
 const textMessageModal = require("./Models/Text");
 const adminTextMessageModal = require("./Models/AdminText");
 const adsSliderSchemaModel =require('./Models/AdsSliderImage');
-
+const AdminLoginModel =require('./Models/AdminLogIn')
 
 
 const app = express();
@@ -139,22 +139,38 @@ app.get("/admin/home", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  usersRegisterModal.findOne({ email: email })
-    .then((user) => {
-      if (user) {
-        if (user.password === password) {
-          res.json("success");
-        } else {
-          res.json("The password is incorrect");
-        }
+
+  try {
+    // Check if the email matches an admin
+    const admin = await AdminLoginModel.findOne({ email: email });
+    if (admin) {
+      if (admin.password === password) {
+        return res.json({ status: "success", role: "admin" });
       } else {
-        res.json("User not found");
+        return res.json({ status: "error", message: "Incorrect password for admin" });
       }
-    })
-    .catch((err) => res.status(500).json({ message: "Error during login" }));
+    }
+
+    // Check if the email matches a user
+    const user = await usersRegisterModal.findOne({ email: email });
+    if (user) {
+      if (user.password === password) {
+        return res.json({ status: "success", role: "user" });
+      } else {
+        return res.json({ status: "error", message: "Incorrect password for user" });
+      }
+    }
+
+    // If neither admin nor user exists
+    return res.json({ status: "error", message: "User not found" });
+  } catch (err) {
+    console.error("Error during login:", err);
+    return res.status(500).json({ status: "error", message: "Internal server error" });
+  }
 });
+
 
 
 

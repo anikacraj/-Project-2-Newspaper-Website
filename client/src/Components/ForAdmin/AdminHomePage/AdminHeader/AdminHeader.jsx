@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 // import {FaFacebook,FaAffiliatetheme} from 'react-icons/fa'
 import '../../../ForUsers/Header/Header.css';
 import './AdminHeader.css'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 
 function Header() {
+   
+    const[signIn,setSignIn]=useState(true)
+    const navigate =useNavigate();
     const [submenuVisible, setSubmenuVisible] = useState(false);
-
+  
     const handleMouseEnter = () => {
         setSubmenuVisible(true);
     };
@@ -15,6 +18,20 @@ function Header() {
     const handleMouseLeave = () => {
         setSubmenuVisible(false);
     };
+
+const handleSignIn=()=>{
+if(signIn){
+    localStorage.removeItem("isAdminAuthenticated") 
+    localStorage.removeItem("role")
+    localStorage.removeItem("isAdminLogIn")
+    setSignIn(false); 
+    useNavigate('/login')
+}
+else{
+    useNavigate('/login')
+}
+   
+}
 
 
     return (
@@ -59,7 +76,7 @@ function Header() {
                     <button className='searchButton' type='submit'>Search </button>
                     
                   </div>
-                    <div  className="right-menuitems"><li><NavLink to="/register">👤Sign Up </NavLink> </li></div>
+                    <div  className="right-menuitems"><li><NavLink to="#" onClick={handleSignIn}>{signIn ? '👤signOut' :'👤signIn'}</NavLink> </li></div>
                     <div  className="right-menuitems"><li><NavLink to="/ebook">🖨️E-Book</NavLink> </li></div>
                     <div  className="right-menuitems"><li><NavLink to="/ShowUsers">👥Users</NavLink> </li></div>
                    

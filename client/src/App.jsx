@@ -31,7 +31,9 @@ function App() {
     localStorage.getItem("isAuthenticated") === "true"
   );
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(
-    localStorage.getItem("isAdminAuthenticated") === "true"
+   localStorage.getItem("isAdminAuthenticated") === "true" && 
+    localStorage.getItem("role")==="admin" && 
+    localStorage.getItem("isAdminLogIn")==="true"
   );
 
   // Function to set authentication state upon user login
@@ -99,7 +101,7 @@ function App() {
           element={
             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
               <AdminHome />
-            </AdminRoute>
+              </AdminRoute>
           }
         />
         <Route
@@ -107,7 +109,7 @@ function App() {
           element={
             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
               <ShowUsers />
-            </AdminRoute>
+              </AdminRoute>
           }
         />
         <Route
@@ -115,7 +117,7 @@ function App() {
           element={
             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
               <ShowMessage />
-            </AdminRoute>
+              </AdminRoute>
           }
         />
         <Route
@@ -123,23 +125,23 @@ function App() {
           element={
             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
               <AdminHeaderNews />
-            </AdminRoute>
+              </AdminRoute>
           }
         />
         <Route
           path="/showNewsLetter"
           element={
-            <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+           
               <ShowNewsLetter />
-            </AdminRoute>
+           
           }
         />
         <Route
           path="/adminTextSlider"
           element={
-            <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
               <AdminTextSlider />
-            </AdminRoute>
+             </AdminRoute>
           }
         />
 
@@ -150,7 +152,7 @@ function App() {
           element={
             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
              <AdminSelectSliderAds />
-            </AdminRoute>
+             </AdminRoute>
           }
         />
 

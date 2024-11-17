@@ -6,29 +6,50 @@ import axios from 'axios';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     axios.post('http://localhost:3004/login', { email, password })
       .then(result => {
-        if (result.data === "success") {
-          // Set user info in localStorage and trigger onLogin
-          localStorage.setItem('user', JSON.stringify({
-            email: email,
-            loginDate: new Date().toISOString()
-          }));
+        const { status, role, message } = result.data;
+
+        if (status === "success") {
           localStorage.setItem("isAuthenticated", "true");
-          onLogin();
-          navigate('/');
+
+          if (role === "admin") {
+            // Admin-specific behavior
+            localStorage.setItem("isAdminAuthenticated", "true");
+            localStorage.setItem("role", "admin");
+            localStorage.setItem("isAdminLogIn", "true");
+            navigate('/admin/home'); // Use navigate here
+          } else if (role === "user") {
+            // User-specific behavior
+            localStorage.setItem("role", "user");
+            localStorage.setItem("isUserLogIn", "true");
+            localStorage.setItem("user", JSON.stringify({
+              email: email,
+              loginDate: new Date().toISOString()
+            }));
+            navigate('/'); // Use navigate here
+          }
         } else {
-          alert('Login failed. Please check your credentials.');
+          alert(message || "Login failed. Please try again.");
         }
       })
       .catch(err => {
-        console.log(err);
+        console.error("Error during login:", err);
+        alert("An error occurred. Please try again later.");
       });
   };
+  
+
+
+
+
+
+
   
 
   return (
@@ -64,6 +85,7 @@ function Login() {
       </div>
     </div>
   );
-}
+};
+
 
 export default Login;
