@@ -13,6 +13,9 @@ function AdminTextslider() {
   const [wordCountThree, setWordCountThree] = useState(0);
   const [wordCountFour, setWordCountFour] = useState(0);
 
+  const [dayName, setDayName] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
+
   const [isEditing, setIsEditing] = useState({
     newsOne: false,
     newsTwo: false,
@@ -32,6 +35,19 @@ function AdminTextslider() {
       setNewsFour(data.newsFour);
     }
   }, [data]);
+
+  useEffect(()=>{
+    const today =new Date();
+    const dayOptions ={weekday: 'long'};
+    const dayNameString =today.toLocaleDateString("en-Us",dayOptions);
+
+    const dateOptions ={year:'numeric',month:'long',day:'numeric',time:'numeric'};
+    const currentDateString = today.toLocaleDateString("en-US", dateOptions);
+    setDayName(dayNameString);
+    setCurrentDate(currentDateString);
+},[]);
+
+
 
   // Function to limit word count
   const handleWordLimit = (text, setText, setWordCount) => {
@@ -71,13 +87,20 @@ function AdminTextslider() {
 
   return (
     <div>
-      <center><h1>Text Slider News</h1></center>
+     <div className='headingName'>
+<h4 style={{marginLeft:'16px',padding:'3px 3px', textShadow:'green' ,fontSize:'18px' }}>{dayName} {currentDate}</h4>
+
+<center> <h1 style={{marginBottom:'10px', marginTop:'-16px'}}>SLIDER TEXT  </h1>
+
+
+</center>
+</div>
 
       <div className="form-container-Admin_headerNews">
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="AdminheaderNews">
             <label>Write News One:</label>
-            <textarea
+            <textarea className='textarea'
               value={newsOne}
               onChange={(e) => handleWordLimit(e.target.value, setNewsOne, setWordCountOne)}
               rows="3"
@@ -94,7 +117,7 @@ function AdminTextslider() {
 
           <div className="AdminheaderNews">
             <label>Write News Two:</label>
-            <textarea
+            <textarea className='textarea'
               value={newsTwo}
               onChange={(e) => handleWordLimit(e.target.value, setNewsTwo, setWordCountTwo)}
               rows="3"
@@ -111,7 +134,7 @@ function AdminTextslider() {
 
           <div className="AdminheaderNews">
             <label>Write News Three:</label>
-            <textarea
+            <textarea className='textarea'
               value={newsThree}
               onChange={(e) => handleWordLimit(e.target.value, setNewsThree, setWordCountThree)}
               rows="3"
@@ -128,7 +151,7 @@ function AdminTextslider() {
 
           <div className="AdminheaderNews">
             <label>Write News Four:</label>
-            <textarea
+            <textarea className='textarea'
               value={newsFour}
               onChange={(e) => handleWordLimit(e.target.value, setNewsFour, setWordCountFour)}
               rows="3"

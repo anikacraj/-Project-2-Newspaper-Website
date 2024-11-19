@@ -23,7 +23,10 @@ function Login() {
             localStorage.setItem("isAdminAuthenticated", "true");
             localStorage.setItem("role", "admin");
             localStorage.setItem("isAdminLogIn", "true");
-            navigate('/admin/home'); // Use navigate here
+
+
+            // Use navigate here
+            navigate('/admin/home');
           } else if (role === "user") {
             // User-specific behavior
             localStorage.setItem("role", "user");

@@ -25,6 +25,11 @@ import AdminTextSlider from './Pages/AdminPanel/AdminTextSlider/AdminTextslider'
 import ProtectedRoute from '/ProtectedRoute';
 import AdminRoute from '/AdminRoute';
 import AdminSelectSliderAds from './Pages/AdminPanel/SelectSliderAds/AdminSelectSliderAds';
+import AdminNational from './Pages/AdminPanel/AdminNational/AdminNational';
+import AdminInternational from './Pages/AdminPanel/AdminInternational/AdminInternational';
+import AdminFootball from './Pages/AdminPanel/AdminFootball/AdminFootball';
+import AdminCricket from './Pages/AdminPanel/AdminCricket/AdminCricket';
+import AdminBusiness from './Pages/AdminPanel/AdminBusiness/AdminBusiness';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -152,6 +157,56 @@ function App() {
           element={
             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
              <AdminSelectSliderAds />
+             </AdminRoute>
+          }
+        />
+
+
+        {/* ----------------------------Admin Page------------------------- */}
+
+        <Route
+          path="/admin/national"
+          element={
+             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+              <AdminNational />
+             </AdminRoute>
+          }
+        />
+
+<Route
+          path="/admin/international"
+          element={
+             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+              <AdminInternational
+               />
+             </AdminRoute>
+          }
+        />
+
+
+<Route
+          path="/admin/football"
+          element={
+             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+              <AdminFootball />
+             </AdminRoute>
+          }
+        />
+
+<Route
+          path="/admin/cricket"
+          element={
+             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+              <AdminCricket />
+             </AdminRoute>
+          }
+        />
+
+<Route
+          path="/admin/business"
+          element={
+             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+              <AdminBusiness />
              </AdminRoute>
           }
         />

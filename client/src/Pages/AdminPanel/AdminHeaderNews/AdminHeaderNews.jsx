@@ -77,7 +77,6 @@ const handleEditToggle = (field) => {
     [field]: !prev[field]
   }));
 };
-
 const handleSave = (field, text) => {
   axios.put('http://localhost:3004/admin/headernews', { [field]: text })
     .then(result => {
@@ -114,12 +113,14 @@ const handleSave = (field, text) => {
 
   return (
     <div >
-<h4 style={{marginLeft:'16px',padding:'3px 3px', textShadow:'green' ,fontSize:'18p' }}>{dayName} {currentDate}</h4>
+<div className='headingName'>
+<h4 style={{marginLeft:'16px',padding:'3px 3px', textShadow:'green' ,fontSize:'18px' }}>{dayName} {currentDate}</h4>
 
-   <center> <h1>Header News </h1>
-   
-   
-   </center>
+<center> <h1 style={{marginBottom:'10px', marginTop:'-16px'}}>Header News </h1>
+
+
+</center>
+</div>
       <div className="form-container-Admin_headerNews">
         <div>
           <form  onSubmit={handleSubmit}>
