@@ -1,0 +1,13 @@
+.new-post{
+   
+    background-color: orchid;
+    height: 80px;
+    width: 300px;
+    margin: 0 auto;
+}
+.new-post__links {
+    text-align: center;
+    font-size: large;
+    padding-top: 30px;
+       
+}

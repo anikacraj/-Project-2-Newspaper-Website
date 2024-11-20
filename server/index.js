@@ -56,16 +56,19 @@ app.get("/contact", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.post("/texteditor", (req, res) => {
+app.post("/admin/:{category}/text", (req, res) => {
   textModal.create(req.body)
     .then((content) => res.json(content))
     .catch((err) => res.json(err));
 });
 
-app.get("/texteditor", (req, res) => {
-  textModal.find()
+app.post("/admin/:category/text", (req, res) => {
+  const { category } = req.params; // Extract the dynamic parameter
+
+  textModal
+    .create({ ...req.body, category }) 
     .then((content) => res.json(content))
-    .catch((err) => res.json(err));
+    .catch((err) => res.status(500).json({ error: err.message }));
 });
 
 app.post("/admin/headernews", (req, res) => {

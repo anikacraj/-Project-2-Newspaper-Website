@@ -26,7 +26,7 @@ import ProtectedRoute from '/ProtectedRoute';
 import AdminRoute from '/AdminRoute';
 import AdminSelectSliderAds from './Pages/AdminPanel/SelectSliderAds/AdminSelectSliderAds';
 import AdminNational from './Pages/AdminPanel/AdminNational/AdminNational';
-import AdminInternational from './Pages/AdminPanel/AdminInternational/AdminInternational';
+// import AdminInternational from './Pages/AdminPanel/AdminInternational/AdminInternational';
 import AdminFootball from './Pages/AdminPanel/AdminFootball/AdminFootball';
 import AdminCricket from './Pages/AdminPanel/AdminCricket/AdminCricket';
 import AdminBusiness from './Pages/AdminPanel/AdminBusiness/AdminBusiness';
@@ -165,7 +165,7 @@ function App() {
         {/* ----------------------------Admin Page------------------------- */}
 
         <Route
-          path="/admin/national"
+          path="/admin/:category"
           element={
              <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
               <AdminNational />
@@ -173,7 +173,17 @@ function App() {
           }
         />
 
+        
 <Route
+          path="/admin/:category/text"
+          element={
+             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+              <RichTextEditor />
+             </AdminRoute>
+          }
+        />
+
+{/* <Route
           path="/admin/international"
           element={
              <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
@@ -181,7 +191,7 @@ function App() {
                />
              </AdminRoute>
           }
-        />
+        /> */}
 
 
 <Route
