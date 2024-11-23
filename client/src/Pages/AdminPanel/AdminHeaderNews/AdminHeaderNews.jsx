@@ -58,7 +58,7 @@ messageFour:false
 
 
 
-const {data,isLoading,error} =useFetch("http://localhost:3004/admin/headernews");
+const {data,isLoading,error} =useFetch("http://localhost:3004/headernews");
 
 useEffect(()=>{
   if (data) {
@@ -78,7 +78,7 @@ const handleEditToggle = (field) => {
   }));
 };
 const handleSave = (field, text) => {
-  axios.put('http://localhost:3004/admin/headernews', { [field]: text })
+  axios.put('http://localhost:3004/headernews', { [field]: text })
     .then(result => {
       setIsEditing((prev) => ({ ...prev, [field]: false }));
       alert("Update successful");
@@ -91,7 +91,7 @@ const handleSave = (field, text) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3004/admin/headernews', { messageOne, messageTwo, messageThree, messageFour })
+    axios.post('http://localhost:3004/headernews', { messageOne, messageTwo, messageThree, messageFour })
       .then(result => {
         console.log(result);
         location.reload();

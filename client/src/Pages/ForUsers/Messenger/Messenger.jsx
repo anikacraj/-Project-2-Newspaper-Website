@@ -9,7 +9,7 @@ function Messenger() {
   const [text, setText] = useState('');
 
   const { data: userMessages, isLoading: isUserLoading, error: userError } = useFetch("http://localhost:3004");
-  const { data: adminMessages, isLoading: isAdminLoading, error: adminError } = useFetch("http://localhost:3004/admin/home");
+  const { data: adminMessages, isLoading: isAdminLoading, error: adminError } = useFetch("http://localhost:3004/adminHome");
 
   const handleChatbox = () => {
     setIsChatboxOpen((prev) => !prev);

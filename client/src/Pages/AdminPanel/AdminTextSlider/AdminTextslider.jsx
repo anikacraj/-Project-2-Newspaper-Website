@@ -24,7 +24,7 @@ function AdminTextslider() {
   });
 
   const maxWords = 10;
-  const { data, isLoading, error } = useFetch("http://localhost:3004/admin/adminTextSlider");
+  const { data, isLoading, error } = useFetch("http://localhost:3004/adminTextSlider");
 
   // Initialize news state with fetched data
   useEffect(() => {
@@ -74,7 +74,7 @@ function AdminTextslider() {
 
   // Save the edited news item
   const handleSave = (field, text) => {
-    axios.put('http://localhost:3004/admin/adminTextSlider', { [field]: text })
+    axios.put('http://localhost:3004/adminTextSlider', { [field]: text })
       .then(result => {
         setIsEditing((prev) => ({ ...prev, [field]: false }));
         alert("Update successful");

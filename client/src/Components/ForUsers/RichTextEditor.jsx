@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import JoditEditor from "jodit-react";
 
@@ -7,7 +7,7 @@ function RichTextEditor() {
   const { category } = useParams(); // Access the current category
   const editor = useRef(null);
   const [content, setContent] = useState("");
-
+const navigate =useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -16,18 +16,24 @@ function RichTextEditor() {
       .then((result) => {
         console.log(result.data);
         alert("Post created successfully!");
+        navigate(`/admin/${category}`);
       })
       .catch((err) => {
         console.error(err);
         alert("Failed to create post.");
+
       });
   };
 
   return (
-    <div className="container">
+    <div className="jodi-container">
       <div className="form-container">
-        <div className="form-box" id="signin-box">
-          <form id="signin-form" onSubmit={handleSubmit}>
+        <div className="jodi-form-box" id="signin-box">
+          
+          <form id="jodi-signin-form" onSubmit={handleSubmit}>
+         
+        
+
             <JoditEditor
               ref={editor}
               value={content}

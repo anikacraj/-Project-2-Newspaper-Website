@@ -11,7 +11,7 @@ function Textslider() {
 
   
 
-  const {data,isLoading,error} =useFetch("http://localhost:3004/admin/adminTextSlider");
+  const {data,isLoading,error} =useFetch("http://localhost:3004/adminTextSlider");
 
   return (
 

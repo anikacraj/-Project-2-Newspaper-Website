@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route,Router, Navigate } from 'react-router-dom';
 import Home from './Pages/ForUsers/Home/Home';
 import Signup from './Pages/ForUsers/Register/UserSignIN/Signup';
 import Login from './Pages/ForUsers/Register/UserLogin/Login';
@@ -26,10 +26,13 @@ import ProtectedRoute from '/ProtectedRoute';
 import AdminRoute from '/AdminRoute';
 import AdminSelectSliderAds from './Pages/AdminPanel/SelectSliderAds/AdminSelectSliderAds';
 import AdminNational from './Pages/AdminPanel/AdminNational/AdminNational';
+import AdminEditNews from './Pages/AdminPanel/AdminEditNews';
 // import AdminInternational from './Pages/AdminPanel/AdminInternational/AdminInternational';
-import AdminFootball from './Pages/AdminPanel/AdminFootball/AdminFootball';
-import AdminCricket from './Pages/AdminPanel/AdminCricket/AdminCricket';
-import AdminBusiness from './Pages/AdminPanel/AdminBusiness/AdminBusiness';
+// import AdminFootball from './Pages/AdminPanel/AdminFootball/AdminFootball';
+// import AdminCricket from './Pages/AdminPanel/AdminCricket/AdminCricket';
+// import AdminBusiness from './Pages/AdminPanel/AdminBusiness/AdminBusiness';
+import AdminSeeMore from './Pages/AdminPanel/AdminSeeMore';
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -102,7 +105,7 @@ function App() {
 
         {/* Admin Routes */}
         <Route
-          path="/admin/home"
+          path="/adminHome"
           element={
             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
               <AdminHome />
@@ -126,7 +129,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/headernews"
+          path="/adminheadernews"
           element={
             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
               <AdminHeaderNews />
@@ -183,43 +186,33 @@ function App() {
           }
         />
 
-{/* <Route
-          path="/admin/international"
-          element={
-             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
-              <AdminInternational
-               />
-             </AdminRoute>
-          }
-        /> */}
-
+  
+        <Route path="/admin/:category" element={<AdminNational />} />
+        <Route path="/admin/:id" element={<AdminSeeMore />} />
+    
+   
 
 <Route
-          path="/admin/football"
-          element={
-             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
-              <AdminFootball />
-             </AdminRoute>
-          }
-        />
+  path="/admin/edit/:_id"
+  element={
+    <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+      <AdminEditNews />
+    </AdminRoute>
+  }
+/>
 
 <Route
-          path="/admin/cricket"
-          element={
-             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
-              <AdminCricket />
-             </AdminRoute>
-          }
-        />
+  path="/news/:_id"
+  element={
+    <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+      <AdminSeeMore />
+    </AdminRoute>
+  }
+/>
 
-<Route
-          path="/admin/business"
-          element={
-             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
-              <AdminBusiness />
-             </AdminRoute>
-          }
-        />
+
+
+
 
 
         {/* Fallback Route */}

@@ -20,6 +20,26 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.use(express.static("uploads"));
+
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    const name = Date.now() + "-" + file.originalname;
+    cb(null, name);
+  },
+});
+
+const upload = multer({ storage: storage });
+
 // MongoDB connection
 const mongoDB = "mongodb://127.0.0.1:27017/SunriseNewspaper";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -56,14 +76,9 @@ app.get("/contact", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.post("/admin/:{category}/text", (req, res) => {
-  textModal.create(req.body)
-    .then((content) => res.json(content))
-    .catch((err) => res.json(err));
-});
 
 app.post("/admin/:category/text", (req, res) => {
-  const { category } = req.params; // Extract the dynamic parameter
+  const { category } = req.params; 
 
   textModal
     .create({ ...req.body, category }) 
@@ -71,19 +86,88 @@ app.post("/admin/:category/text", (req, res) => {
     .catch((err) => res.status(500).json({ error: err.message }));
 });
 
-app.post("/admin/headernews", (req, res) => {
+app.get("/admin/:category/text", (req, res) => {
+  const { category } = req.params;
+
+  textModal
+    .find({ category }) // Filter data based on category
+    .sort({ _id: -1 })  // LIFO: Sort by newest first
+    .then((news) => res.json(news))
+    .catch((err) => res.status(500).json(err));
+});
+
+// Backend code: Get news by ID
+app.get("/admin/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const news = await textModal.findById(id);
+    if (!news) {
+      return res.status(404).json({ message: "News not found" });
+    }
+    res.status(200).json(news);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+
+
+app.put("/admin/edit/:_id", async (req, res) => {
+  const { _id } = req.params;
+  const { content } = req.body;
+
+  try {
+    const updatedNews = await textModal.findByIdAndUpdate(
+      _id,
+      { content },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedNews) {
+      return res.status(404).json({ message: "News not found" });
+    }
+
+    res.status(200).json({ message: "News updated successfully", updatedNews });
+  } catch (err) {
+    console.error("Error updating news:", err); // Log the error
+    res.status(500).json({ message: "Internal Server Error", error: err.message });
+  }
+});
+
+
+
+
+// Delete News by ID
+app.delete('/admin/:category/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const result = await textModal.findByIdAndDelete(id);
+    if (!result) {
+      return res.status(404).json({ message: 'News not found' });
+    }
+    res.json({ message: 'News deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting news:', error);
+    res.status(500).json({ message: 'Error deleting news' });
+  }
+});
+
+
+app.post("/headernews", (req, res) => {
   HeaderNewsModal.create(req.body)
     .then((news) => res.json(news))
     .catch((err) => res.json(err));
 });
 
-app.get("/admin/headernews", (req, res) => {
+app.get("/headernews", (req, res) => {
   HeaderNewsModal.findOne().sort({ _id: -1 })
     .then((news) => res.json(news))
     .catch((err) => res.json(err));
 });
 
-app.put("/admin/headernews",(req,res)=>{
+app.put("/headernews",(req,res)=>{
   const{ messageOne,messageTwo,messageThree,messageFour} =req.body;
 
   HeaderNewsModal.findOneAndUpdate({},{messageOne,messageTwo,messageThree,messageFour},{new:true,sort:{_id:-1}})
@@ -96,13 +180,13 @@ app.put("/admin/headernews",(req,res)=>{
 
 
 
-app.post("/admin/adminTextSlider", (req, res) => {
+app.post("/adminTextSlider", (req, res) => {
   SliderNewsModal.create(req.body)
     .then((news) => res.json(news))
     .catch((err) => res.json(err));
 });
 
-app.put("/admin/adminTextSlider",(req,res)=>{
+app.put("/adminTextSlider",(req,res)=>{
   const{newsOne,newsTwo,newsThree,newsFour} =req.body;
 
   SliderNewsModal.findOneAndUpdate({},{newsOne,newsTwo,newsThree,newsFour},{new:true,sort:{_id:-1}})
@@ -112,7 +196,7 @@ app.put("/admin/adminTextSlider",(req,res)=>{
 })
 
 
-app.get("/admin/adminTextSlider", (req, res) => {
+app.get("/adminTextSlider", (req, res) => {
   SliderNewsModal.findOne().sort({ _id: -1 })
     .then((news) => res.json(news))
     .catch((err) => res.json(err));
@@ -130,13 +214,13 @@ app.get("/", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.post("/admin/home", (req, res) => {
+app.post("/adminHome", (req, res) => {
   adminTextMessageModal.create(req.body)
     .then((msgs) => res.json(msgs))
     .catch((err) => res.json(err));
 });
 
-app.get("/admin/home", (req, res) => {
+app.get("/adminHome", (req, res) => {
   adminTextMessageModal.find()
     .then((msgs) => res.json(msgs))
     .catch((err) => res.json(err));
@@ -181,56 +265,8 @@ app.post("/login", async (req, res) => {
 
 // Image upload configuration using Multer
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-app.use(express.static("uploads"));
 
 
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    const name = Date.now() + "-" + file.originalname;
-    cb(null, name);
-  },
-});
-
-const upload = multer({ storage: storage });
-
-// Endpoint to upload slider images
-app.post("/uploadSliderAds", upload.array("image", 3), async (req, res) => {
-  try {
-    if (!req.files || req.files.length !== 3) {
-      return res.status(400).json({ message: "Please upload exactly 3 images." });
-    }
-
-    const imagePaths = req.files.map((file) => file.filename);
-    console.log("Received image paths:", imagePaths); // Debugging line
-
-    const adsSliderData = new adsSliderSchemaModel({
-      ImageOne: imagePaths[0],
-      ImageTwo: imagePaths[1],
-      ImageThree: imagePaths[2],
-    });
-
-    await adsSliderData.save();
-    res.status(200).json({ message: "Images uploaded successfully!", data: adsSliderData });
-  } catch (error) {
-    console.error("Error in /uploadSliderAds:", error); // Log full error
-    res.status(500).json({ message: "Error uploading images.", error });
-  }
-});
-
-app.get("/uploadSliderAds", async (req, res) => {
-  try {
-    const adsSliderImages = await adsSliderSchemaModel.findOne().sort({ timestamp: -1 }); 
-    res.status(200).json(adsSliderImages);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching images.", error });
-  }
-});
 
 
 // Start server
