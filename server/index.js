@@ -40,6 +40,45 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+
+
+// Endpoint to upload slider images
+app.post("/uploadSliderAds", upload.array("image", 3), async (req, res) => {
+  try {
+    if (!req.files || req.files.length !== 3) {
+      return res.status(400).json({ message: "Please upload exactly 3 images." });
+    }
+
+    const imagePaths = req.files.map((file) => file.filename);
+    console.log("Received image paths:", imagePaths); // Debugging line
+
+    const adsSliderData = new adsSliderSchemaModel({
+      ImageOne: imagePaths[0],
+      ImageTwo: imagePaths[1],
+      ImageThree: imagePaths[2],
+    });
+
+    await adsSliderData.save();
+    res.status(200).json({ message: "Images uploaded successfully!", data: adsSliderData });
+  } catch (error) {
+    console.error("Error in /uploadSliderAds:", error); // Log full error
+    res.status(500).json({ message: "Error uploading images.", error });
+  }
+});
+
+app.get("/uploadSliderAds", async (req, res) => {
+  try {
+    const adsSliderImages = await adsSliderSchemaModel.findOne().sort({ timestamp: -1 }); 
+    res.status(200).json(adsSliderImages);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching images.", error });
+  }
+});
+
+
+
+
+
 // MongoDB connection
 const mongoDB = "mongodb://127.0.0.1:27017/SunriseNewspaper";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -215,6 +254,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/adminHome", (req, res) => {
+  console.log(req.body.message);
   adminTextMessageModal.create(req.body)
     .then((msgs) => res.json(msgs))
     .catch((err) => res.json(err));
@@ -224,6 +264,7 @@ app.get("/adminHome", (req, res) => {
   adminTextMessageModal.find()
     .then((msgs) => res.json(msgs))
     .catch((err) => res.json(err));
+
 });
 
 

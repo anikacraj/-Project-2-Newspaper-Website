@@ -4,10 +4,23 @@
     height: 80px;
     width: 300px;
     margin: 0 auto;
+    border-radius: 10px;
+  
 }
+
+.links_:hover{
+    color: blueviolet;
+}
+
 .new-post__links {
     text-align: center;
     font-size: large;
     padding-top: 30px;
-       
+     
+}
+.links_{
+    color: white;
+    font-style: bold;
+       background-color: transparent;
+       font-size: 24px;
 }

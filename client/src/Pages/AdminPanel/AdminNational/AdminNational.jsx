@@ -56,7 +56,7 @@ function AdminNational() {
       <div style={{ marginTop: "60px" }}>
         <div className="new-post">
           <div className="new-post__links">
-            <Link to={`/admin/${category}/text`}>Create New News</Link>
+            <Link className="links_" to={`/admin/${category}/text`}>Create New News</Link>
           </div>
         </div>
       </div>

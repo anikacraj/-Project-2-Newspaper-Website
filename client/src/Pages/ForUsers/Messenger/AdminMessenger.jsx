@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Messenger.css';
 import { FaRegCommentDots } from 'react-icons/fa';
 import axios from 'axios';
@@ -8,8 +8,44 @@ function AdminMessenger() {
   const [isChatboxOpen, setIsChatboxOpen] = useState(false);
   const [adminMessage, setAdminMessage] = useState('');
 
-  const { data: userMessages, isLoading: isUserLoading, error: userError } = useFetch("http://localhost:3004");
-  const { data: adminMessages, isLoading: isAdminLoading, error: adminError } = useFetch("http://localhost:3004/adminHome");
+  const [Owners, setOwners] = useState({
+    messages: [],
+    isLoading: true,
+    error: false,
+  })
+
+  useEffect(() => {
+    const renderData = async () => {
+      try {
+        const userArr = await axios.get('http://localhost:3004');
+        const adminArr = await axios.get('http://localhost:3004/adminHome');
+
+        setOwners({
+          messages: [
+            ...userArr.data.map((msg) => ({ text: msg.message, sender: 'You', timestamp: msg.timestamp }))
+            ,
+            ...adminArr.data.map((msg) => ({ text: msg.adminMessage, sender: 'Admin', timestamp: msg.timestamp }))
+          ].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+          ,
+          isLoading: false,
+          error: false
+        })
+
+      } catch (error) {
+        setOwners((prev) => ({
+          ...prev,
+          isLoading: false,
+          error: true
+        }));
+        console.log(error);
+        window.alert('Error on messanger: ' + error.message);
+
+
+      }
+    }
+    renderData();
+  }, [])
+
 
   const handleChatbox = () => {
     setIsChatboxOpen((prev) => !prev);
@@ -17,26 +53,28 @@ function AdminMessenger() {
 
   const handleClose = () => {
     setIsChatboxOpen(false);
-     
+
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3004/adminHome', { adminMessage })
-      .then(() => {
-        setAdminMessage('');
-       
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    try {
+      await axios.post('http://localhost:3004/adminHome', { adminMessage });
+      setOwners((prev) => ({
+        ...prev,
+        messages: [...prev.messages, {
+          text: adminMessage,
+          sender: "admin", timespam: new Date()
+        }]
+      }))
+      setAdminMessage('');
+
+    } catch (error) {
+      console.log(error)
+      alert("error admin messenger: "+error.message);
+    }
   };
 
-  // Combine and sort messages (FIFO)
-  const combinedMessages = [
-    ...(userMessages || []).map(msg => ({ text: msg.message, sender: 'User', timestamp: msg.timestamp })),
-    ...(adminMessages || []).map(msg => ({ text: msg.adminMessage, sender: 'Admin', timestamp: msg.timestamp }))
-  ].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)); // Sort by timestamp (earliest first)
 
 
 
@@ -52,14 +90,14 @@ function AdminMessenger() {
             <p onClick={handleClose} style={{ cursor: 'pointer', position: 'absolute', right: 0, top: '0', marginRight: '10px' }}>❌</p>
             <p style={{ textAlign: 'center', fontSize: '29px', fontWeight: 'bold', color: 'white' }}>Messages</p>
             <div className='chatting'>
-              {isUserLoading || isAdminLoading ? (
+              {Owners.isLoading ? (
                 <p>Loading messages...</p>
-              ) : userError || adminError ? (
+              ) : Owners.error ? (
                 <p>Error loading messages</p>
               ) : (
-                combinedMessages.map((msg, index) => (
-                  <div key={index} style={{ textAlign: msg.sender === 'User' ? 'left' : 'right', color: 'white' }}>
-                    <span style={{ color: msg.sender === 'User' ? 'gold' : 'yellow', fontWeight: 'bold' }}>
+                Owners.messages.map((msg, index) => (
+                  <div key={index} style={{ textAlign: msg.sender === 'You' ? 'right' : 'left', color: 'white' }}>
+                    <span style={{ color: msg.sender === 'You' ? 'gold' : 'yellow', fontWeight: 'bold' }}>
                       {msg.sender}
                     </span>
                     <br />

@@ -1,15 +1,52 @@
-import React, { useState } from 'react';
-import './Messenger.css';
-import { FaRegCommentDots } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import useFetch from '../../AdminPanel/Fetch/useFetch';
+import { FaRegCommentDots } from 'react-icons/fa';
+
+import './Messenger.css';
 
 function Messenger() {
+
+  const [Owners, setOwners] = useState({
+    messages: [],
+    isLoading: true,
+    error: false
+  });
+
   const [isChatboxOpen, setIsChatboxOpen] = useState(false);
   const [text, setText] = useState('');
 
-  const { data: userMessages, isLoading: isUserLoading, error: userError } = useFetch("http://localhost:3004");
-  const { data: adminMessages, isLoading: isAdminLoading, error: adminError } = useFetch("http://localhost:3004/adminHome");
+
+
+  useEffect(() => {
+    const renderData = async () => {
+      try {
+        const userArr = await axios.get('http://localhost:3004');
+        const adminArr = await axios.get('http://localhost:3004/adminHome');
+        setOwners(
+          {
+            messages: [
+              ...userArr.data.map((msg) => ({ text: msg.message, sender: 'You', timestamp: msg.timestamp })),
+              ...adminArr.data.map((msg) => ({ text: msg.adminMessage, sender: 'Admin', timestamp: msg.timestamp }))
+            ].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)),
+            isLoading: false,
+            error: false
+          }
+        );
+
+      } catch (error) {
+        setOwners((prev) => ({
+          ...prev,
+          isLoading: false,
+          error: true
+        }));
+        console.log(error);
+        window.alert('Error on messanger: ' + error.message);
+      }
+    }
+
+    renderData();
+
+  }, []);
 
   const handleChatbox = () => {
     setIsChatboxOpen((prev) => !prev);
@@ -19,14 +56,17 @@ function Messenger() {
     setIsChatboxOpen(false);
   };
 
-  
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3004', { message: text })
+    await axios.post('http://localhost:3004', { message: text })
       .then(() => {
+        setOwners((prev) => ({
+          ...prev,
+          messages: [...prev.messages, { text: text, sender: "You", timespam: new Date() }]
+        }))
         setText('');
-        window.location.reload();
       })
       .catch(err => {
         console.error(err);
@@ -34,12 +74,7 @@ function Messenger() {
   };
 
 
-  const combinedMessages = [
-    ...(userMessages || []).map(msg => ({ text: msg.message, sender: 'You', timestamp: msg.timestamp })),
-    ...(adminMessages || []).map(msg => ({ text: msg.adminMessage, sender: 'Admin', timestamp: msg.timestamp }))
-  ].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)); // Sort by timestamp (earliest first)
 
-  
 
 
   return (
@@ -54,12 +89,12 @@ function Messenger() {
             <p onClick={handleClose} style={{ cursor: 'pointer', position: 'absolute', right: 0, top: '0', marginRight: '10px' }}>❌</p>
             <p style={{ textAlign: 'center', fontSize: '29px', fontWeight: 'bold', color: 'white' }}>Message Us</p>
             <div className='chatting'>
-              {isUserLoading || isAdminLoading ? (
+              {Owners.isLoading ? (
                 <p>Loading messages...</p>
-              ) : userError || adminError ? (
+              ) : Owners.error ? (
                 <p>Error loading messages</p>
               ) : (
-                combinedMessages.map((msg, index) => (
+                Owners.messages.map((msg, index) => (
                   <div key={index} style={{ textAlign: msg.sender === 'You' ? 'right' : 'left', color: 'white' }}>
                     <span style={{ color: msg.sender === 'You' ? 'gold' : 'yellow', fontWeight: 'bold' }}>
                       {msg.sender}
@@ -89,4 +124,4 @@ function Messenger() {
   );
 }
 
-export default Messenger;
+export default React.memo(Messenger);

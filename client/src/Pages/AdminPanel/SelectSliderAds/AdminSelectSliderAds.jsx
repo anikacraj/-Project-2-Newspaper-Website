@@ -49,8 +49,15 @@ function AdminSelectSliderAds() {
         <div style={{backgroundColor:'lightgreen'}}>
         <h1>Upload Slider Images</h1>
         <form onSubmit={handleSubmit} encType="multipart/form-data" >
-        
-        </form>
+        <input
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            onChange={handleFileChange}
+                        />
+                        <br />
+                        <button type="submit">Upload</button>
+                    </form>
   
         </div>
         <h2>Current Slider Images</h2>
