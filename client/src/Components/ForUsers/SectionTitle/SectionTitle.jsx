@@ -9,7 +9,7 @@ const SectionTitle = () => {
         <div className="line"></div>
       </div>
       <span className="text">National</span>
-
+      
       
       <div className="line-container">
         <div className="line"></div>

@@ -1,0 +1,68 @@
+/* Style the slider container */
+.slider__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+  
+  /* Wrapper for all slides */
+  .slider__wrapper {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  /* Individual slide items */
+  .slide__item {
+    flex: 0 0 calc(33.33% - 10px); /* Show 3 items at a time */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .product__links {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .product__links:hover {
+    text-decoration: underline;
+  }
+  
+  /* Arrow buttons */
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .left-arrow {
+    left: 10px;
+  }
+  
+  .right-arrow {
+    right: 10px;
+  }
+  
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  

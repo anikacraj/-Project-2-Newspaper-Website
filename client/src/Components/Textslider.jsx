@@ -4,7 +4,7 @@ import React, {useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import axios from 'axios'
 import useFetch from '../Pages/AdminPanel/Fetch/useFetch';
-import './ForUsers/TextSlider.css'
+import './TextSlider.css'
 
 
 function Textslider() {

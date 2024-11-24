@@ -304,7 +304,6 @@ app.post("/login", async (req, res) => {
 
 
 
-// Image upload configuration using Multer
 
 
 

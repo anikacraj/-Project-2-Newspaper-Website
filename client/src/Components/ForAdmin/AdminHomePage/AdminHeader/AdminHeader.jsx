@@ -43,7 +43,9 @@ else{
                     <div className="logo">
                
                         <div className="name">
-                        <div> <img className='logoImage'  src="../../Media/red.png" alt="" />  </div>
+                        <div> 
+                        <NavLink to="/adminhome"><img  className='logoImage'  src="../../Media/red.png" alt="" /></NavLink>
+                              </div>
                         </div>
                     </div>
                     </div>
@@ -61,7 +63,7 @@ else{
                         onMouseEnter={handleMouseEnter} 
                         onMouseLeave={handleMouseLeave}
                     >
-                        <li><NavLink to="/cricket">Sports News</NavLink>
+                        <li><NavLink to="/admin/cricket">Sports News</NavLink>
                             <ul className="submenu-content" id='submenu' style={{ display: submenuVisible ? 'block' : 'none' }}>
                                 <li><NavLink to="/admin/cricket">Cricket</NavLink></li>
                                 <li><NavLink to="/admin/football">Football</NavLink></li>

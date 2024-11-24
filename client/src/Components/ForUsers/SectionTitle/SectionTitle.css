@@ -20,20 +20,22 @@
     background-color: #3e5f91; 
   }
   
-  .text {
+  .text,.international-text{
     font-size: 50px; 
     font-weight: bold;
     color: #e6531a; 
     position: relative;
   }
   
-  .text::after {
+  .international-text::after,.text::after {
     content: '›'; /* Arrow */
     color: #3e5f91;
     margin-left: 8px;
     font-size: 50px;
    
-  }
+  } 
+
+  
   
   .text::before {
     content: 'NATIONAL';
@@ -43,5 +45,14 @@
     color: rgba(0, 0, 0, 0.05); 
     font-size: 98px;
    
+  }
+
+  .international-text::before{
+    content: 'INTERNATIONAL';
+    position: absolute;
+  margin-top: -20px;
+  margin-left: -198px;
+    color: rgba(0, 0, 0, 0.05); 
+    font-size: 88px;
   }
   
