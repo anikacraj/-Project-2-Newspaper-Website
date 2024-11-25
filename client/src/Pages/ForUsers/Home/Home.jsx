@@ -14,6 +14,8 @@ import useFetch from "./useFetch";
 import HorizontalSlider from "../../../Components/ForUsers/HorizontalSlider/HorizontalSlider";
 import SectionTitle from "../../../Components/ForUsers/SectionTitle/SectionTitle";
 import InternationalSectionTitle from "../../../Components/ForUsers/SectionTitle/InternationalSection";
+import SportsSectionTitle from "../../../Components/ForUsers/SectionTitle/SportsSectionTitle";
+import BusinessSectionTitle from "../../../Components/ForUsers/SectionTitle/BusinessSection";
 
 
 
@@ -100,6 +102,8 @@ export default function Home() {
 <SectionTitle />
 <HorizontalSlider />
 <InternationalSectionTitle />
+<SportsSectionTitle />
+<BusinessSectionTitle />
 <CommentSection />
 <Footer />
 
