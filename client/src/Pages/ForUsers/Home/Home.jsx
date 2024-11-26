@@ -16,6 +16,9 @@ import SectionTitle from "../../../Components/ForUsers/SectionTitle/SectionTitle
 import InternationalSectionTitle from "../../../Components/ForUsers/SectionTitle/InternationalSection";
 import SportsSectionTitle from "../../../Components/ForUsers/SectionTitle/SportsSectionTitle";
 import BusinessSectionTitle from "../../../Components/ForUsers/SectionTitle/BusinessSection";
+import HomeInternationalSection from "../../../Components/ForUsers/HomeInternationalSection/HomeInternationalSection";
+import HomeSportsSection from "../../../Components/ForUsers/HomeSportsSection/HomeSportsSection";
+import HomeBusiness from "../../../Components/ForUsers/HomeBusiness/HomeBusiness";
 
 
 
@@ -101,9 +104,10 @@ export default function Home() {
 
 <SectionTitle />
 <HorizontalSlider />
-<InternationalSectionTitle />
-<SportsSectionTitle />
-<BusinessSectionTitle />
+
+<HomeInternationalSection />
+<HomeSportsSection />
+<HomeBusiness />
 <CommentSection />
 <Footer />
 

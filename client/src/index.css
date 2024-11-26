@@ -38,10 +38,7 @@ body,html{
   color: #666;
   margin: 5px 0;
 }
-.product__img {
-  width: 100%;
-  height: 10rem;
-}
+
 
 .product__link {
   display: inline-block;

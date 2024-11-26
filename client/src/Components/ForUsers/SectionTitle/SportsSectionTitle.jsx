@@ -8,7 +8,7 @@ const SportsSectionTitle = () => {
         <div className="line"></div>
         <div className="line"></div>
       </div>
-      <span className="sports-text">Sports</span>
+    <a href="/cricket"><span className="sports-text">Sports</span></a>
       
       
       <div className="line-container">

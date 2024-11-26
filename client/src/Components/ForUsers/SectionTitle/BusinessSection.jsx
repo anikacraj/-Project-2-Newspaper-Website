@@ -3,12 +3,12 @@ import './SectionTitle.css';
 
 const BusinessSectionTitle = () => {
   return (
-    <div className="section-title">
+    <div className="section-title-business">
      <div className="line-container">
         <div className="line"></div>
         <div className="line"></div>
       </div>
-      <span className="business-text">Business</span>
+   <a href="/business"><span className="business-text">Business</span></a>
       
       
       <div className="line-container">

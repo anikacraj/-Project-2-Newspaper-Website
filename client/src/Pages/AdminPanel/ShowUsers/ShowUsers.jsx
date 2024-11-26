@@ -9,7 +9,7 @@ function ShowUsers() {
   const [filterName, setFilterName] = useState(data);
 
   useEffect(() => {
-    setFilterName(data); 
+    setFilterName(data);
   }, [data]);
 
   const handleSearch = (searchValue) => {

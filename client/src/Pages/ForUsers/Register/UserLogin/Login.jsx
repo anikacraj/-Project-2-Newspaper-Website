@@ -57,10 +57,12 @@ function Login() {
 
   return (
     <div>
-      <div className='container'>
-        <div className="form-container">
-          <div className="form-box" id="signin-box">
-            <h3 style={{ textAlign: 'center', marginTop: '-10px' }}>Log In</h3>
+      <div className='signin-container'>
+        <div className="signin-form-container">
+        <div> <img className='signinImage'  src="../../Media/red.png" alt="" />  </div>
+          <div className="signin-form-box" id="signin-form-box">
+          <h3 className="login-heading">Log In</h3>
+
             <form id="signin-form" onSubmit={handleSubmit}>
               <label htmlFor="signin-email">Email:</label>
               <input
@@ -81,7 +83,7 @@ function Login() {
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button className='button' type="submit">Log In</button>
+              <button className='signin-button' type="submit">Log In</button>
             </form>
           </div>
         </div>

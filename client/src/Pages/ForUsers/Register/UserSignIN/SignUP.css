@@ -1,100 +1,151 @@
-
-
-.container {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    min-height: 40vh;
-    display: flex;
- justify-content: center;
- border-bottom:0.5px solid #5555555b;
- gap: 2vw;
-
-}
-.signinImage{
-    height: 300px;
-    width: 700px;
-   margin-top: 8vh;
-   margin-right: 1vw;
-}
-
-h3{
-    font-weight: 800;
-    font-size: 30px;
-}
-
-h2 {
-    color: #333;
-}
-
-.form-container {
+/* General container styling */
+.signin-container {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
-   
-    
-}
-
-.form-box {
-    
-    border-radius: 8px;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
     padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-   margin-right: 10px;
-}
-
-.form-box h3 {
-    margin-bottom: 15px;
-    color: #333;
-}
-
-
-
-input {
+    font-family: 'Arial', sans-serif;
+    margin-top: -6rem;
+  }
+  
+  .signin-form-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:#FAFAFA;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     width: 90%;
-    padding: 10px;
-    margin-bottom: 15px;
-   
-    border-radius: 4px;
-}
-.input-login{
-    width: 90%;
-}
-
-.button {
+    max-width: 900px;
+  }
+  /* Styling for the heading */
+.login-heading {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4caf50; /* Consistent with your theme colors */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #4caf50;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+  }
+  
+  
+  /* Image styling */
+  .signinImage {
     width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
+    min-width: 250px;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+    margin-top: 4.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .signinImage {
+      display: none;
+    }
+  }
+  
+  /* Form box styling */
+  .signin-form-box {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #signin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4caf50;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input:focus {
+    border-color: #4caf50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+  
+  /* Submit button */
+  .signin-button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #4caf50;
     color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-weight: 600;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
-.message {
-    color: red;
-    margin-top: 20px;
-}
-
-.link{
-   display: flex;
-   justify-content: center;
-   background-color: #ff0055;
-   color: white;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
-   width: 90%;
-   padding: 10px;
-   margin-left: 1vw;
-
-}
-.link:hover {
-    background-color: #ff0055cc;
-}
+    transition: background-color 0.3s;
+  }
+  
+  .signin-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Additional text and link styling */
+  .signin-message {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+  }
+  
+  .link {
+    color: #4caf50;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .signin-form-box {
+      padding: 20px;
+    }
+  
+    #signin-form {
+      gap: 15px;
+    }
+  
+    label {
+      font-size: 0.9rem;
+    }
+  
+    .signin-button {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  }
+  
