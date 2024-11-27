@@ -1,14 +1,15 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
+import React from "react";
+import { Navigate } from "react-router-dom";
 
-const AdminRoute = ({ isAdminAuthenticated, children }) => {
-  // Check if the admin is authenticated
-  if (!isAdminAuthenticated) {
-    // Redirect to login page if not authenticated
-    return <Navigate to="/login" replace />;
+const AdminRoute = ({ children }) => {
+  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+  const role = localStorage.getItem("role");
+
+  if (!isAuthenticated || role !== "admin") {
+    // Redirect to login if not authenticated or not an admin
+    return <Navigate to="/login" />;
   }
 
-  // If authenticated, render the child components
   return children;
 };
 

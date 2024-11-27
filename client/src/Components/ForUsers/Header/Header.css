@@ -111,24 +111,24 @@ nav ul li:hover > .submenu-content {
   gap: 1vh;
   border-left: 2px solid #3333339c;
   border-right: 2px solid #3333339c;
-    padding-left: 5px;
+    padding-left: 10px;
     padding-right: 8px;
    
    
   }
+  
   .input{
 display: flex;
 gap: 0.5vh;
+margin-right: 2px;
+border-right: 2px solid #3333339c;
 
   }
-  .input input {
-    margin-top: 5px;
-  }
-  .searchButton{
+.searchButton{
     height: 28px;
     width: 58px;
     border-radius: 10%;
-    margin-top: 3px;
+    margin-right: 2px;
   
   }
 
@@ -140,4 +140,8 @@ gap: 0.5vh;
   }
   nav .active{
     color: #fa0606;
+  }  }
+  .input input {
+    margin-top: 5px;
   }
+  

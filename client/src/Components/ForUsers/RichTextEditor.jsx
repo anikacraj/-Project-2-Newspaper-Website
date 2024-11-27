@@ -30,19 +30,21 @@ const navigate =useNavigate();
       <div className="form-container">
         <div className="jodi-form-box" id="signin-box">
           
-          <form id="jodi-signin-form" onSubmit={handleSubmit}>
-         
-        
+        <form  onSubmit={handleSubmit}>
+      <h1 className="form-title">Create Your Post</h1>
 
-            <JoditEditor
-              ref={editor}
-              value={content}
-              onChange={(newContent) => setContent(newContent)}
-            />
-            <button className="button" type="submit">
-              Create Post
-            </button>
-          </form>
+      <JoditEditor
+        className="jodit-editor"
+        ref={editor}
+        value={content}
+        onChange={(newContent) => setContent(newContent)}
+        
+      />
+
+      <button className="submit-button" type="submit">
+        Create Post
+      </button>
+    </form>
         </div>
       </div>
     </div>

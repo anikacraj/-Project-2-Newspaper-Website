@@ -1,26 +1,51 @@
-.new-post{
-   
-    background-color: orchid;
-    height: 80px;
-    width: 300px;
-    margin: 0 auto;
-    border-radius: 10px;
-  
-}
 
-.links_:hover{
-    color: blueviolet;
-}
 
-.new-post__links {
-    text-align: center;
-    font-size: large;
-    padding-top: 30px;
-     
-}
-.links_{
+/* Style for the link itself */
+.create-news-link {
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    background: linear-gradient(45deg, #ff6b6b, #ff6b81);
+    border-radius: 8px;
+    padding: 10px 20px;
     color: white;
-    font-style: bold;
-       background-color: transparent;
-       font-size: 24px;
-}
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: fit-content;
+    cursor: pointer;
+  }
+  
+  /* Hover effect */
+  .create-news-link:hover {
+    background: linear-gradient(45deg, #ff5c5c, #ff3b67);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Focus effect */
+  .create-news-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.6);
+  }
+  
+  /* Styling for the inner container */
+  .link-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Icon style */
+  .icon {
+    font-size: 20px;
+  }
+  
+  /* Responsive design for mobile screens */
+  @media (max-width: 768px) {
+    .create-news-link {
+      padding: 12px 18px;
+      font-size: 14px;
+    }
+  }
+  

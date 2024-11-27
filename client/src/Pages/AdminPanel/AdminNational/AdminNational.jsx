@@ -55,12 +55,15 @@ function AdminNational() {
       <AdminHeader />
       <div style={{ marginTop: "60px" }}> 
         <div className="new-post">
-          <div className="new-post__links">
-            <Link className="links_" to={`/admin/${category}/text`}>Create New News</Link>
-          </div>
+        <Link className="create-news-link" to={`/admin/${category}/text`}>
+      <div className="link-container">
+        <span className="icon">📝</span> Create New News
+      </div>
+    </Link>
         </div>
       </div>
-
+      <br />
+<hr />
       <div className="displayNews">
         <h1 style={{ textAlign: "center", marginTop: "60px" }}>
           Latest News Uploaded

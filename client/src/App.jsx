@@ -22,7 +22,7 @@ import PrivacyPolicy from './Pages/ForUsers/PrivacyPolicy/PrivacyPolicy';
 import Ebook from './Pages/ForUsers/Ebook/Ebook';
 import ShowNewsLetter from './Pages/AdminPanel/ShowNewsLetter/ShowNewsLetter';
 import AdminTextSlider from './Pages/AdminPanel/AdminTextSlider/AdminTextslider';
-import ProtectedRoute from '/ProtectedRoute';
+
 import AdminRoute from '/AdminRoute';
 import AdminSelectSliderAds from './Pages/AdminPanel/SelectSliderAds/AdminSelectSliderAds';
 import AdminNational from './Pages/AdminPanel/AdminNational/AdminNational';
@@ -32,37 +32,25 @@ import AdminEditNews from './Pages/AdminPanel/AdminEditNews';
 // import AdminCricket from './Pages/AdminPanel/AdminCricket/AdminCricket';
 // import AdminBusiness from './Pages/AdminPanel/AdminBusiness/AdminBusiness';
 import AdminSeeMore from './Pages/AdminPanel/AdminSeeMore';
+import ProtectedRoute from '../ProtectedRoute';
 
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
   );
-  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(
-   localStorage.getItem("isAdminAuthenticated") === "true" && 
-    localStorage.getItem("role")==="admin" && 
-    localStorage.getItem("isAdminLogIn")==="true"
-  );
-
-  // Function to set authentication state upon user login
   const onLogin = () => {
     setIsAuthenticated(true);
+    
   };
-
-  // Function to set authentication state upon admin login
-  const loginAdmin = () => {
-    setIsAdminAuthenticated(true);
-  };
-
-  // Sync authentication states with localStorage
-  useEffect(() => {
-    localStorage.setItem("isAuthenticated", isAuthenticated);
-  }, [isAuthenticated]);
+  const [role, setRole] = useState(localStorage.getItem("role"));
 
   useEffect(() => {
-    localStorage.setItem("isAdminAuthenticated", isAdminAuthenticated);
-  }, [isAdminAuthenticated]);
-
+    const authStatus = localStorage.getItem("isAuthenticated") === "true";
+    const userRole = localStorage.getItem("role");
+    setIsAuthenticated(authStatus);
+    setRole(userRole);
+  }, []);
   return (
     <BrowserRouter>
       <Routes>
@@ -87,19 +75,29 @@ function App() {
 
         {/* Protected User Route */}
         <Route
-          path="/texteditor"
-          element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <RichTextEditor />
-            </ProtectedRoute>
-          }
-        />
+        path="/texteditor"
+        element={
+          <ProtectedRoute
+            isAuthenticated={isAuthenticated}
+            role={role}
+            allowedRoles={["user"]}
+          >
+            <RichTextEditor />
+          </ProtectedRoute>
+        }
+      />
         <Route
           path="/ebook"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Ebook />
-            </ProtectedRoute>
+             
+             
+           <ProtectedRoute 
+           isAuthenticated={isAuthenticated}
+           role={role}
+           allowedRoles={["user"]}
+           >
+             <Ebook />
+           </ProtectedRoute>
           }
         />
 
@@ -107,7 +105,7 @@ function App() {
         <Route
           path="/adminHome"
           element={
-            <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+            <AdminRoute >
               <AdminHome />
               </AdminRoute>
           }
@@ -115,7 +113,7 @@ function App() {
         <Route
           path="/showUsers"
           element={
-            <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+            <AdminRoute >
               <ShowUsers />
               </AdminRoute>
           }
@@ -123,7 +121,7 @@ function App() {
         <Route
           path="/showMessage"
           element={
-            <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+            <AdminRoute >
               <ShowMessage />
               </AdminRoute>
           }
@@ -131,7 +129,7 @@ function App() {
         <Route
           path="/adminheadernews"
           element={
-            <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+            <AdminRoute >
               <AdminHeaderNews />
               </AdminRoute>
           }
@@ -139,15 +137,15 @@ function App() {
         <Route
           path="/showNewsLetter"
           element={
-           
+            <AdminRoute >
               <ShowNewsLetter />
-           
+              </AdminRoute>
           }
         />
         <Route
           path="/adminTextSlider"
           element={
-             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+             <AdminRoute >
               <AdminTextSlider />
              </AdminRoute>
           }
@@ -158,7 +156,7 @@ function App() {
 <Route
           path="/uploadSliderAds"
           element={
-            <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+            <AdminRoute>
              <AdminSelectSliderAds />
              </AdminRoute>
           }
@@ -170,7 +168,7 @@ function App() {
         <Route
           path="/admin/:category"
           element={
-             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+             <AdminRoute >
               <AdminNational />
              </AdminRoute>
           }
@@ -180,22 +178,22 @@ function App() {
 <Route
           path="/admin/:category/text"
           element={
-             <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+             <AdminRoute >
               <RichTextEditor />
              </AdminRoute>
           }
         />
 
   
-        <Route path="/admin/:category" element={<AdminNational />} />
-        <Route path="/admin/:id" element={<AdminSeeMore />} />
+        {/* <Route path="/admin/:category" element={<AdminNational />} />
+        <Route path="/admin/:id" element={<AdminSeeMore />} /> */}
     
    
 
 <Route
   path="/admin/edit/:_id"
   element={
-    <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+    <AdminRoute >
       <AdminEditNews />
     </AdminRoute>
   }
@@ -204,7 +202,7 @@ function App() {
 <Route
   path="/news/:_id"
   element={
-    <AdminRoute isAdminAuthenticated={isAdminAuthenticated}>
+    <AdminRoute >
       <AdminSeeMore />
     </AdminRoute>
   }
@@ -220,6 +218,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+} 
 
 export default App;

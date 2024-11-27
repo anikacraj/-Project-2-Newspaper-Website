@@ -74,8 +74,8 @@ else{
                    </div>
                    <div className="right">
                   <div className='input'>
-                    <input type="text" id='search' />
-                    <button className='searchButton' type='submit'>Search </button>
+                    <input style={{marginTop:'-5px'}} type="text" id='search' />
+                    <button  className='searchButton' type='submit'>Search </button>
                     
                   </div>
                     <div  className="right-menuitems"><li><NavLink to="#" onClick={handleSignIn}>{signIn ? '👤signOut' :'👤signIn'}</NavLink> </li></div>

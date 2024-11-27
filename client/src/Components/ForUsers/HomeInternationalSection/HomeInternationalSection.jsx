@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import InternationalSectionTitle from '../SectionTitle/InternationalSection';
 function HomeInternationalSection() {
     const { data, isLoading, error } = useFetch(
-        `http://localhost:3004/admin/national/text`
+        `http://localhost:3004/admin/international/text`
       );
 const [uploadNews,setUploadNews] =useState([]);
 

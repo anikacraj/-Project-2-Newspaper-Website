@@ -53,7 +53,8 @@ useEffect (()=>{
 },[]);
 
 const handleLogOut = () => {
-  localStorage.removeItem("user"); // Use quotes around "user"
+  localStorage.clear();
+  // Use quotes around "user"
   setUser(null); // Ensure setUser is defined and updates the login state
 };
 
@@ -126,7 +127,7 @@ const handleLogOut = () => {
                    </div>
                    <div className="right">
                   <div className='input'>
-                  <input type="text" id='search' />
+                  <input style={{marginTop:'-5px'}} type="text" id='search' />
                     <button className='searchButton' type='submit'>Search </button>
                     
                   </div>

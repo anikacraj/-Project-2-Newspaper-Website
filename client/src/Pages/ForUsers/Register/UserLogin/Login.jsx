@@ -11,43 +11,34 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:3004/login', { email, password })
-      .then(result => {
-        const { status, role, message } = result.data;
-
-        if (status === "success") {
-          localStorage.setItem("isAuthenticated", "true");
-
-          if (role === "admin") {
-            // Admin-specific behavior
-            localStorage.setItem("isAdminAuthenticated", "true");
-            localStorage.setItem("role", "admin");
-            localStorage.setItem("isAdminLogIn", "true");
-
-
-            // Use navigate here
-            navigate('/admin/home');
-          } else if (role === "user") {
-            // User-specific behavior
-            localStorage.setItem("role", "user");
-            localStorage.setItem("isUserLogIn", "true");
-            localStorage.setItem("user", JSON.stringify({
-              email: email,
-              loginDate: new Date().toISOString()
-            }));
-            navigate('/'); // Use navigate here
-          }
-        } else {
-          alert(message || "Login failed. Please try again.");
-        }
-      })
-      .catch(err => {
-        console.error("Error during login:", err);
-        alert("An error occurred. Please try again later.");
-      });
-  };
+    axios
+    .post("http://localhost:3004/login", { email, password })
+    .then((result) => {
+      const { status, role, message } = result.data;
   
-
+      if (status === "success") {
+        localStorage.setItem("isAuthenticated", "true");
+        localStorage.setItem("role", role);
+  
+        if (role === "admin") {
+          navigate("/adminHome");
+        } else if (role === "user") {
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ email, loginDate: new Date().toISOString() })
+          );
+          navigate('/');
+        }
+      } else {
+        alert(message || "Login failed. Please try again.");
+      }
+    })
+    .catch((err) => {
+      console.error("Error during login:", err);
+      alert("An error occurred. Please try again later.");
+    });
+  
+  }
 
 
 

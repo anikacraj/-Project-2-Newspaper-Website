@@ -96,7 +96,7 @@ function AdminMessenger() {
                 <p>Error loading messages</p>
               ) : (
                 Owners.messages.map((msg, index) => (
-                  <div key={index} style={{ textAlign: msg.sender === 'You' ? 'right' : 'left', color: 'white' }}>
+                  <div key={index} style={{ textAlign: msg.sender === 'You' ? 'left' : 'right', color: 'white' }}>
                     <span style={{ color: msg.sender === 'You' ? 'gold' : 'yellow', fontWeight: 'bold' }}>
                       {msg.sender}
                     </span>

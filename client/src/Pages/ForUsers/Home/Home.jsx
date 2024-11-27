@@ -56,7 +56,7 @@ export default function Home() {
 <Messenger />
 <AdSlider />
 
-<div style={{ marginTop: "60px" }}> 
+<div style={{ marginTop: "10px" }}> 
        
       </div>
 

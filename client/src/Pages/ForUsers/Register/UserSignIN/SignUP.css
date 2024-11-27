@@ -7,7 +7,7 @@
     background: white;
     padding: 20px;
     font-family: 'Arial', sans-serif;
-    margin-top: -6rem;
+ 
   }
   
   .signin-form-container {
@@ -74,11 +74,12 @@
   
   input[type="text"],
   input[type="email"],
-  input[type="password"] {
+  input[type="password"],
+  input[type='message'] {
     width: 100%;
     padding: 10px 15px;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 1.5px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
     transition: all 0.3s ease-in-out;
