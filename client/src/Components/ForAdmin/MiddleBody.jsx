@@ -5,7 +5,7 @@ function MiddleBody() {
     <div>
             <div className="middleBody">
 
-<div className="newsletter">  <a href="/adminHeadernews">  <h4>Header News </h4>  </a>  </div>
+<div className="newsletter">  <a href="/admin/Header">  <h4>Header News </h4>  </a>  </div>
  <div className="newsletter"> <a href="/uploadSliderAds"> <h4> Slider Ads </h4>   </a>  </div>
  <div className="newsletter"> <a href="/adminTextSlider"> <h4>Slider Text </h4>  </a> </div>
  <div className="newsletter"> <a href=""> <h4> Contact Us </h4> </a>  </div>

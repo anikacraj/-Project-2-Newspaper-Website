@@ -58,18 +58,18 @@ const HorizontalSlider = () => {
           <div key={upload._id} className="slide__item">
             <article className="product">
               <h6>Published on: {formattedDate(upload)}</h6>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: upload.content.substring(0, 1200), // Limit the preview content length
-                }}
-              />
               <Link
-                className="product__links"
-                to={`/news/${upload._id}`}
-                state={upload}
-              >
-                See more
-              </Link>
+               className="product__link"
+               to={`/user/news/${upload._id}`}
+               state={upload}
+             >
+                 <div
+             dangerouslySetInnerHTML ={{
+                 __html: upload.content.substring(0,1200),
+             }}
+     />
+     See More
+             </Link>
             </article>
           </div>
         ))}

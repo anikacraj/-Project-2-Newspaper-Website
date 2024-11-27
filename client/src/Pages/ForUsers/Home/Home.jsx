@@ -68,18 +68,18 @@ export default function Home() {
               <article className="product" key={upload._id}>
                 <h6>Published on: {formattedDate(upload)}</h6>
               
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: upload.content.substring(0, 1200),
-                  }}
-                />
                 <Link
-                  className="product__link"
-                  to={`/news/${upload._id}`}
-                  state={upload}
-                >
-                  See more
-                </Link>
+               className="product__link"
+               to={`/user/news/${upload._id}`}
+               state={upload}
+             >
+                 <div
+             dangerouslySetInnerHTML ={{
+                 __html: upload.content.substring(0,1200),
+             }}
+     />
+     See More
+             </Link>
                 <div
                   style={{
                     display: "flex",

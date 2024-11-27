@@ -194,26 +194,8 @@ app.delete('/admin/:category/:id', async (req, res) => {
 });
 
 
-app.post("/headernews", (req, res) => {
-  HeaderNewsModal.create(req.body)
-    .then((news) => res.json(news))
-    .catch((err) => res.json(err));
-});
 
-app.get("/headernews", (req, res) => {
-  HeaderNewsModal.findOne().sort({ _id: -1 })
-    .then((news) => res.json(news))
-    .catch((err) => res.json(err));
-});
 
-app.put("/headernews",(req,res)=>{
-  const{ messageOne,messageTwo,messageThree,messageFour} =req.body;
-
-  HeaderNewsModal.findOneAndUpdate({},{messageOne,messageTwo,messageThree,messageFour},{new:true,sort:{_id:-1}})
-.then((updatedNews)=>res.json(updatedNews))
-.catch((err)=>res.json(err));
-
-})
 
 
 

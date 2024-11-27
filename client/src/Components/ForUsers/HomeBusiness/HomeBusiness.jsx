@@ -33,19 +33,18 @@ const formattedDate =(upload) =>{
          uploadNews.map((upload)=>(
              <article className="product" key={upload._id}>
                  <h6>Published On : {formattedDate(upload)}</h6>
-             <div
-                 dangerouslySetInnerHTML ={{
-                     __html: upload.content.substring(0,1200),
-                 }}
-         />
-    
-             <Link
-                   className="product__link"
-                   to={`/news/${upload._id}`}
-                   state={upload}
-                 >
-                   See more
-                 </Link>
+                 <Link
+               className="product__link"
+               to={`/user/news/${upload._id}`}
+               state={upload}
+             >
+                 <div
+             dangerouslySetInnerHTML ={{
+                 __html: upload.content.substring(0,1200),
+             }}
+     />
+     See More
+             </Link>
     
              </article>
          ))

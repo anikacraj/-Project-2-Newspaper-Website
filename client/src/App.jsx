@@ -33,6 +33,7 @@ import AdminEditNews from './Pages/AdminPanel/AdminEditNews';
 // import AdminBusiness from './Pages/AdminPanel/AdminBusiness/AdminBusiness';
 import AdminSeeMore from './Pages/AdminPanel/AdminSeeMore';
 import ProtectedRoute from '../ProtectedRoute';
+import UserSeeMore from './Components/ForUsers/UserSeeMore';
 
 
 function App() {
@@ -92,14 +93,21 @@ function App() {
              
              
            <ProtectedRoute 
-           isAuthenticated={isAuthenticated}
-           role={role}
-           allowedRoles={["user"]}
+         
            >
              <Ebook />
            </ProtectedRoute>
           }
         />
+
+<Route
+  path="/user/news/:_id"
+  element={
+
+   <UserSeeMore />
+  
+  }
+/>
 
         {/* Admin Routes */}
         <Route
@@ -126,14 +134,7 @@ function App() {
               </AdminRoute>
           }
         />
-        <Route
-          path="/adminheadernews"
-          element={
-            <AdminRoute >
-              <AdminHeaderNews />
-              </AdminRoute>
-          }
-        />
+     
         <Route
           path="/showNewsLetter"
           element={

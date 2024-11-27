@@ -33,7 +33,14 @@ function Header() {
     };
 
 
-    const {data,isLoading,error} =useFetch("http://localhost:3004/headernews");
+    const {data,isLoading,error} =useFetch("http://localhost:3004/admin/Header/text");
+    const [uploadNews,setUploadNews] =useState([]);
+
+    useEffect(()=>{
+      setUploadNews(data || []);
+    },[data]);
+
+    
    
 const [light,setLight]=useState(false);
 
@@ -61,50 +68,55 @@ const handleLogOut = () => {
 
 
     return (
-        <div className={light ? "light-green-bg" : "white-bg"}  >
-            <nav>
-                <div className="firstRow">
-                    <div className="logo">
-               
-                        <div className="name">
-                        <div> <img className='logoImage'  src="../../Media/red.png" alt="" />  </div>
-                        </div>
-                    </div>
-                    <div className="newsDiv">
+      <div className={light ? "light-green-bg" : "white-bg"}>
+    <nav>
+      <div className="firstRow">
+        {/* Logo Section */}
+        <div className="logo">
+          <div className="name">
+            <img className="logoImage" src="../../Media/red.png" alt="Logo" />
+          </div>
+        </div>
 
-                    
-   
-            <div className='HeaderNews' >
-              <div style={{fontWeight:'300', fontSize:'14px'}} className="header-News" >
-            {data.messageOne}
-               
-              </div>
-              <div  style={{fontWeight:'300', fontSize:'14px'}}className="header-News" >
-               {data.messageTwo}
-                <br />
-                
-              </div>
-              <div  style={{fontWeight:'300', fontSize:'14px'}} className="header-News" >
-                {data.messageThree}
-           
-              </div>
-              <div  style={{fontWeight:'300', fontSize:'14px'}} className="header-News" id='header-News4' >
-               
-                {data.messageFour}
-               
-                <br />
-               
-              </div>
+        {/* News Section */}
+        <div className="newsDiv">
+          <div
+            style={{
+            
+             
+            }}
+          >
+            <div className="headerNews-container">
+              <section className="header-News">
+                {uploadNews && uploadNews.length > 0 ? (
+                  uploadNews.map((upload) => (
+                    <article
+                      className="header-news__single"
+                      key={upload._id}
+                    >
+                      <Link
+                        className="news__link"
+                        to={`/user/news/${upload._id}`}
+                        state={upload}
+                      >
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: upload.content.substring(0, 1200),
+                          }}
+                        />
+                        ......{/* Other content */}
+                      </Link>
+                    </article>
+                  ))
+                ) : (
+                  <h3>No news available</h3>
+                )}
+              </section>
             </div>
-        
-        
-      
-    
-                      
-                     
-                      
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+
                 <div className="secondRow">
                    <div className="left">
                    <div className="Home"><li><NavLink to="/">Breaking News </NavLink></li></div>
