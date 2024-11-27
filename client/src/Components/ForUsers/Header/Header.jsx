@@ -123,7 +123,7 @@ const handleLogOut = () => {
                             </ul>
                         </li>
                     </div>
-                    <div className="business"><li><NavLink to="/business">Business News</NavLink></li></div>
+                    <div className="business"><li style={{marginRight:'2px'}}><NavLink to="/business">Business News</NavLink></li></div>
                    </div>
                    <div className="right">
                   <div className='input'>

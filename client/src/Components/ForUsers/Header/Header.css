@@ -98,11 +98,13 @@ nav ul li:hover > .submenu-content {
     padding: 10px;
     color: #333;
     text-decoration: none;
+    text-align: center;
   }
   
   .submenu-content li a:hover {
     background-color: #ddd;
-    
+    padding: 1px;
+    text-align: center;
   }
 
   .right{
@@ -119,8 +121,8 @@ nav ul li:hover > .submenu-content {
   
   .input{
 display: flex;
-gap: 0.5vh;
-margin-right: 2px;
+gap: 0.2vh;
+
 border-right: 2px solid #3333339c;
 
   }
@@ -140,7 +142,7 @@ border-right: 2px solid #3333339c;
   }
   nav .active{
     color: #fa0606;
-  }  }
+  }  
   .input input {
     margin-top: 5px;
   }
