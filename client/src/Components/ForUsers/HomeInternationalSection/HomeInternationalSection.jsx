@@ -20,7 +20,7 @@ const formattedDate =(upload) =>{
 }
 
   return (
-    <div style={{backgroundColor:'#EAECF0', marginTop:'10px',marginBottom:'10px' }} >
+    <div style={{backgroundColor:'#EAECF0', marginTop:'10px',marginBottom:'10px',marginLeft:'-2rem' }} >
 
 <div className="products-container" >
 <InternationalSectionTitle />

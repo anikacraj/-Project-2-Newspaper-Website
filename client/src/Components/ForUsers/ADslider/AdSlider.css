@@ -6,6 +6,21 @@
 z-index: 1;
   height: 100px;
   margin-top: 28px;
+ 
+}
+
+@media (max-width: 768px) {
+  .slideshow {
+    overflow: hidden;
+    max-width: 1000px;
+    position: relative;
+    margin: 0 auto;
+  z-index: 1;
+    height: 100px;
+    margin-top: 28px;
+    margin-left: -1rem;
+  }
+
 }
 
 .slideshowSlider {

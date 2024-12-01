@@ -7,7 +7,7 @@ import SportsSectionTitle from '../SectionTitle/SportsSectionTitle';
 
 function HomeSportsSection() {
   const { data, isLoading, error } = useFetch(
-    `http://localhost:3004/admin/international/text`
+    `http://localhost:3004/admin/football/text`
   );
 const [uploadNews,setUploadNews] =useState([]);
 

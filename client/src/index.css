@@ -1,7 +1,21 @@
-body,html{
+
+
+
+
+body, html {
   background-color: #FFFFFF;
+  margin: 0; 
+  padding: 0;
+  overflow-x: hidden; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+body::-webkit-scrollbar, 
+html::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in WebKit browsers */
 }
 .products-container {
+  margin: 0;
   padding: 20px;
 }
 
@@ -13,12 +27,12 @@ body,html{
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 .product {
   background-color: #fff;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -133,4 +147,9 @@ body,html{
   .submit-button {
     font-size: 14px;
   }
+}
+
+
+.dangerousHtml{
+  font-size: 8px;
 }

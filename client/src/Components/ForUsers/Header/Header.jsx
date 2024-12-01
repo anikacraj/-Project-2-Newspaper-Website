@@ -20,7 +20,11 @@ const date =new Date();
 
 function Header() {
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(
+    [
+      localStorage.getItem("role" =="user")
+    ]
+  );
 
     const [submenuVisible, setSubmenuVisible] = useState(false);
 
@@ -51,13 +55,13 @@ const lightChange=()=>{
    
 
    
-useEffect (()=>{
-  const storedUser = JSON.parse(localStorage.getItem('user'));
-  if(storedUser){
-    setUser(storedUser);
-  
+useEffect(() => {
+  if (data && Array.isArray(data)) {
+    // Assuming the news items have a `createdAt` property for sorting
+    const sortedNews = [...data].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    setUploadNews(sortedNews.slice(0, 4)); // Limit to the latest 4 items
   }
-},[]);
+}, [data]);
 
 const handleLogOut = () => {
   localStorage.clear();
@@ -144,7 +148,7 @@ const handleLogOut = () => {
                     
                   </div>
                <div>
-               {user ? (
+               { user ? (
             // Show "Log Out" if user is logged in
             <li><NavLink to="/" onClick={handleLogOut}> 🧑‍✈️Log Out</NavLink></li>
           ) : (

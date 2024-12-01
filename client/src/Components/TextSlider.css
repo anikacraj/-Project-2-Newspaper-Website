@@ -36,6 +36,7 @@ background-color: #FE3204;
   
     animation-duration: 35s;
     animation-iteration-count: infinite;
+    font-family: 'Times New Roman', Times, serif;
     }
     .gole{
         width: 2vh;
@@ -61,3 +62,57 @@ background-color: #FE3204;
             transform: translateX(-100%);
         }
     }
+
+
+    @media (max-width: 768px) {
+ 
+        .movingtext{
+    
+            height: 50px;
+            width: 100%;
+           
+          margin-top: 20px;
+            position: relative;
+           margin-left: 10px;
+          
+        }
+        .textHeading{
+        
+        height: 30px;
+        width: 70px;
+        padding-bottom :40px;
+        padding-left: 10px;
+        padding-top: -10px;
+        margin-top: 20px;
+        color: white;
+        border-radius: 4%;
+        background-color: #FE3204;
+        font-size: 9px;
+        margin-left: 27px;
+        }
+
+        .slidertext{
+            display: inline-block;
+            white-space: nowrap;
+        animation-name: anim;
+        animation-timing-function: linear;  
+      
+        animation-duration: 35s;
+        animation-iteration-count: infinite;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12px;
+        text-align: left;
+        }
+        .gole{
+            width: 2vh;
+            height: 2vh;
+            border-radius: 50%;
+            background-color: #FE3204;
+            display: inline-block;
+            white-space: nowrap;
+            margin-left: 6px;
+            margin-right: 6px;
+            
+            }
+    
+      }

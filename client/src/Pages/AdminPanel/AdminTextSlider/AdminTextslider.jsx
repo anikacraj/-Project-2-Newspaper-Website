@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useFetch from '../Fetch/useFetch';
+import './AdminTextslider.css'
+
 
 function AdminTextslider() {
   const [newsOne, setNewsOne] = useState('');
@@ -87,20 +89,24 @@ function AdminTextslider() {
 
   return (
     <div>
-     <div className='headingName'>
-<h4 style={{marginLeft:'16px',padding:'3px 3px', textShadow:'green' ,fontSize:'18px' }}>{dayName} {currentDate}</h4>
 
-<center> <h1 style={{marginBottom:'10px', marginTop:'-16px'}}>SLIDER TEXT  </h1>
+     <div className='sliderTextName'>
+
+<div>
+<h4 style={{marginLeft:'16px',padding:'3px 3px', textShadow:'green' ,
+  fontSize:'18px' ,textAlign:'left' }}>🗓️{dayName} {currentDate}</h4>
+</div>
+<center> <h1 style={{}}> 📩SLIDER TEXT  </h1>
 
 
 </center>
 </div>
 
-      <div className="form-container-Admin_headerNews">
+      <div className="form-container-Admin_sliderNews">
         <form onSubmit={(e) => e.preventDefault()}>
-          <div className="AdminheaderNews">
+          <div className="Admin_sliderNews">
             <label>Write News One:</label>
-            <textarea className='textarea'
+            <textarea className='Admin_sliderNews_textarea'
               value={newsOne}
               onChange={(e) => handleWordLimit(e.target.value, setNewsOne, setWordCountOne)}
               rows="3"
@@ -109,15 +115,15 @@ function AdminTextslider() {
             />
             <p>{wordCountOne}/{maxWords} words</p>
             {isEditing.newsOne ? (
-              <button onClick={() => handleSave("newsOne", newsOne)}>Save</button>
+              <button className='Admin_sliderNews_Button' onClick={() => handleSave("newsOne", newsOne)}>Save</button>
             ) : (
-              <button onClick={() => handleEditToggle("newsOne")}>Edit</button>
+              <button className='Admin_sliderNews_Button' onClick={() => handleEditToggle("newsOne")}>Edit</button>
             )}
           </div>
 
-          <div className="AdminheaderNews">
+          <div className="AdminSliderNews">
             <label>Write News Two:</label>
-            <textarea className='textarea'
+            <textarea className='Admin_sliderNews_textarea'
               value={newsTwo}
               onChange={(e) => handleWordLimit(e.target.value, setNewsTwo, setWordCountTwo)}
               rows="3"
@@ -126,15 +132,15 @@ function AdminTextslider() {
             />
             <p>{wordCountTwo}/{maxWords} words</p>
             {isEditing.newsTwo ? (
-              <button onClick={() => handleSave("newsTwo", newsTwo)}>Save</button>
+              <button className='Admin_sliderNews_Button' onClick={() => handleSave("newsTwo", newsTwo)}>Save</button>
             ) : (
-              <button onClick={() => handleEditToggle("newsTwo")}>Edit</button>
+              <button className='Admin_sliderNews_Button' onClick={() => handleEditToggle("newsTwo")}>Edit</button>
             )}
           </div>
 
           <div className="AdminheaderNews">
             <label>Write News Three:</label>
-            <textarea className='textarea'
+            <textarea className='Admin_sliderNews_textarea'
               value={newsThree}
               onChange={(e) => handleWordLimit(e.target.value, setNewsThree, setWordCountThree)}
               rows="3"
@@ -143,15 +149,15 @@ function AdminTextslider() {
             />
             <p>{wordCountThree}/{maxWords} words</p>
             {isEditing.newsThree ? (
-              <button onClick={() => handleSave("newsThree", newsThree)}>Save</button>
+              <button className='Admin_sliderNews_Button' onClick={() => handleSave("newsThree", newsThree)}>Save</button>
             ) : (
-              <button onClick={() => handleEditToggle("newsThree")}>Edit</button>
+              <button  className='Admin_sliderNews_Button' onClick={() => handleEditToggle("newsThree")}>Edit</button>
             )}
           </div>
 
           <div className="AdminheaderNews">
             <label>Write News Four:</label>
-            <textarea className='textarea'
+            <textarea className='Admin_sliderNews_textarea'
               value={newsFour}
               onChange={(e) => handleWordLimit(e.target.value, setNewsFour, setWordCountFour)}
               rows="3"
@@ -160,9 +166,9 @@ function AdminTextslider() {
             />
             <p>{wordCountFour}/{maxWords} words</p>
             {isEditing.newsFour ? (
-              <button onClick={() => handleSave("newsFour", newsFour)}>Save</button>
+              <button className='Admin_sliderNews_Button' onClick={() => handleSave("newsFour", newsFour)}>Save</button>
             ) : (
-              <button onClick={() => handleEditToggle("newsFour")}>Edit</button>
+              <button className='Admin_sliderNews_Button' onClick={() => handleEditToggle("newsFour")}>Edit</button>
             )}
           </div>
         </form>
@@ -170,17 +176,17 @@ function AdminTextslider() {
 
       <center><h2>Display News</h2></center>
       <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-        <div className='showHeaderNews'>
-          {data?.newsOne} <button onClick={() => handleEditToggle("newsOne")}>Edit</button>
+        <div className='showSliderNews'>
+          {data?.newsOne} <button className='Admin_sliderNews_Button' onClick={() => handleEditToggle("newsOne")}>Edit</button>
         </div>
-        <div className='showHeaderNews'>
-          {data?.newsTwo} <button onClick={() => handleEditToggle("newsTwo")}>Edit</button>
+        <div className='showSliderNews'>
+          {data?.newsTwo} <button className='Admin_sliderNews_Button' onClick={() => handleEditToggle("newsTwo")}>Edit</button>
         </div>
-        <div className='showHeaderNews'>
-          {data?.newsThree} <button onClick={() => handleEditToggle("newsThree")}>Edit</button>
+        <div className='showSliderNews'>
+          {data?.newsThree} <button className='Admin_sliderNews_Button' onClick={() => handleEditToggle("newsThree")}>Edit</button>
         </div>
-        <div className='showHeaderNews'>
-          {data?.newsFour} <button onClick={() => handleEditToggle("newsFour")}>Edit</button>
+        <div className='showSliderNews'>
+          {data?.newsFour} <button className='Admin_sliderNews_Button' onClick={() => handleEditToggle("newsFour")}>Edit</button>
         </div>
       </div>
     </div>

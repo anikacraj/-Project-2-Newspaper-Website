@@ -79,3 +79,53 @@
     color: rgba(207, 202, 202, 0.11); 
     font-size: 88px;
   }
+
+  @media (max-width: 768px) {
+ 
+    
+    .international-text::after,.text::after, .sports-text::after,.business-text::after{
+      content: '›'; /* Arrow */
+      color: #ff2f63;
+      margin-left: 8px;
+      font-size: 50px;
+     
+    } 
+  
+    
+    
+    .text::before {
+      content: 'NATIONAL';
+      position: absolute;
+    margin-top: -20px;
+    margin-left: -138px;
+      color: rgba(0, 0, 0, 0.05); 
+      font-size: 0px;
+     
+    }
+  
+    .international-text::before{
+      content: 'INTERNATIONAL';
+      position: absolute;
+    margin-top: -20px;
+    margin-left: -198px;
+      color: rgba(0, 0, 0, 0.05); 
+      font-size: 0px;
+    }
+    .sports-text::before{
+      content: 'SPORTS';
+      position: absolute;
+    margin-top: -20px;
+    margin-left: -100px;
+      color: rgba(0, 0, 0, 0.05); 
+      font-size: 0px;
+    }
+    .business-text::before{
+      content: 'BUSINESS';
+      position: absolute;
+    margin-top: -20px;
+    margin-left: -100px;
+      color: rgba(207, 202, 202, 0.11); 
+      font-size: 0px;
+    }
+
+  }
