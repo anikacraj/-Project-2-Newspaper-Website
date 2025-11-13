@@ -1,152 +1,170 @@
-/* General container styling */
-.signin-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: white;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
- 
-  }
-  
-  .signin-form-container {
-    display: flex;
-    flex-wrap: wrap;
-    background-color:#FAFAFA;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 90%;
-    max-width: 900px;
-  }
-  /* Styling for the heading */
-.login-heading {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #4caf50; /* Consistent with your theme colors */
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-bottom: 2px solid #4caf50;
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-  }
-  
-  
-  /* Image styling */
-  .signinImage {
-    width: 100%;
-    min-width: 250px;
-    object-fit: cover;
-    border-radius: 10px 0 0 10px;
-    margin-top: 4.5rem;
-  }
-  
-  @media (max-width: 768px) {
-    .signinImage {
-      display: none;
-    }
-  }
-  
-  /* Form box styling */
-  .signin-form-box {
-    flex: 1;
-    padding: 40px;
-    display: flex;
+/* ==== Layout Container ==== */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #ffffff;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ==== Card ==== */
+.signup-card {
+  display: flex;
+  background-color: #111; /* black */
+  color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  max-width: 900px;
+  width: 95%;
+  transition: all 0.4s ease;
+}
+
+.signup-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* ==== Image Section ==== */
+.signup-image {
+  flex: 1;
+  background-color: #1b1b1b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.signup-image img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  opacity: 0.9;
+}
+
+/* ==== Form Section ==== */
+.signup-form-section {
+  flex: 1.2;
+  background: #fff;
+  color: #111;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #008000; /* green */
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+/* ==== Inputs ==== */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #008000;
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #008000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 128, 0, 0.3);
+}
+
+/* ==== Button ==== */
+.signup-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #008000;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: #00a000;
+  transform: scale(1.03);
+}
+
+/* ==== Footer Text ==== */
+.signin-text {
+  margin-top: 20px;
+  text-align: center;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.signin-link {
+  color: #008000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signin-link:hover {
+  text-decoration: underline;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+  .signup-card {
     flex-direction: column;
-    justify-content: center;
   }
-  
-  #signin-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+
+  .signup-image {
+    display: none;
   }
-  
-  label {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #4caf50;
+
+  .signup-form-section {
+    padding: 30px 20px;
   }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type='message'] {
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: 1.5px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    transition: all 0.3s ease-in-out;
+
+  .signup-title {
+    font-size: 1.6rem;
   }
-  
-  input:focus {
-    border-color: #4caf50;
-    outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-  }
-  
-  /* Submit button */
-  .signin-button {
-    width: 100%;
-    padding: 12px 20px;
-    background-color: #4caf50;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .signin-button:hover {
-    background-color: #45a049;
-  }
-  
-  /* Additional text and link styling */
-  .signin-message {
-    font-size: 0.9rem;
-    color: #666;
-    text-align: center;
-  }
-  
-  .link {
-    color: #4caf50;
-    font-weight: bold;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .signin-form-box {
-      padding: 20px;
-    }
-  
-    #signin-form {
-      gap: 15px;
-    }
-  
-    label {
-      font-size: 0.9rem;
-    }
-  
-    .signin-button {
-      font-size: 0.9rem;
-      padding: 10px;
-    }
-  }
-  
+}
+
+
+/* ==== Textarea Styling ==== */
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background-color: #f9f9f9;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #008000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 128, 0, 0.3);
+}

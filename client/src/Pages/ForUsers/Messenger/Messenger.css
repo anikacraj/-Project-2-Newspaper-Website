@@ -1,5 +1,5 @@
 
-.contauner-chatbox{
+.container-chatbox{
     position: relative;
 }
 
@@ -42,10 +42,6 @@
   }
   
 
-.header-chatbox{
-   
-
-}
 
 .chatting {
   height: 300px; /* Set the height according to your needs */
@@ -90,9 +86,7 @@ padding-top: 3px;
   color: aliceblue;
   
 }
-.msgarea{
 
-}
 
 .send{
  position: absolute;
@@ -118,18 +112,20 @@ display: block;
 .message  {
 
     position: fixed;
-   left:0;
+   right:0;
+   bottom: 0;
    z-index: 10000;
+ 
 }
 #chatbox{
     width: 300px;
     height: 300px;
     background-color: rgba(30, 22, 39, 0.799);
     position: fixed;
-    left: 0;
-    top: 0;
+    right: 0;
+    top: 500px;
    z-index: 1000;
-   margin-top: 10px;
+   
    border-radius: 7.5%;
   border-bottom: 4px solid black;
   border-top: 4px solid black;

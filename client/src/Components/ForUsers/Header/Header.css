@@ -1,196 +1,132 @@
+/* --- Existing Styles (omitted for brevity) --- */
 
-
-
-
-/* First Row */
-.firstRow {
-  display: flex;
-  justify-content: space-between; /* Space between logo and news */
-  /* Center vertically */
-
-
-  
+/* Add styles for the new mobile menu structure */
+.nav-left-mobile,
+.nav-icons-mobile {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
 }
 
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
+.nav-left-mobile li,
+.nav-icons-mobile li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
 }
 
-.logoImage {
-  width: 130px;
-  height: 120px;
-  object-fit: contain;
-}
-
-/* News Container */
-.newsDiv {
-  flex-grow: 1; /* Ensures it stretches to fill available space */
-  display: flex;
-  align-items: center;
- /* Scroll horizontally if content overflows */
-}
-
-.headerNews-container {
-  display: flex;
-  gap: 0px; /* Spacing between news cards */
-}
-
-/* News Section */
-.header-News {
-  display: flex;
- 
-}
-
-/* Individual News Item */
-.header-news__single {
-  background-color: white;
- 
-  border-radius: 10px;
-
-  width: 270px; /* Set a fixed width */
-  height: 150px;
-  transition: transform 0.2s ease;
-  overflow: hidden;
-  padding-bottom: 5px;
-  padding-top: 5px;
-}
-
-.header-news__single:hover {
-  transform: scale(1.05);
-}
-
-/* News Link */
-.news__link {
-  text-decoration: none;
-  color: #333;
-}
-
-.news__link div {
-  font-size: 14px;
-  color: #666;
-  margin-top: 10px;
-}
-
-/* No News Message */
-.header-News h3 {
-  font-size: 18px;
-  color: #999;
-  text-align: center;
-}
-
-textarea {
-  resize: none;
-
-}
-.secondRow{
-    display: flex;
-    justify-content: center;
-    
-    height: 45px;
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-}
-.left{
-    margin-top: 7px;
-    display: flex;
-    justify-content: center;
-    gap: 1vw;
-    
-}
-nav {
-    position: relative;
-}
- li {
-
-    list-style-type: none;
-}
-a{
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: 600;
-}
-nav ul li:hover > .submenu-content {
+.nav-left-mobile li a,
+.nav-icons-mobile li a {
     display: block;
-    
-  }
-
-  .submenu-content {
-   display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  }
-  
-  
-  
-  .submenu-content li a {
-    padding: 10px;
+    width: 100%;
     color: #333;
     text-decoration: none;
-    text-align: center;
-  }
-  
-  .submenu-content li a:hover {
-    background-color: #ddd;
-    padding: 1px;
-    text-align: center;
-  }
-
-  .right{
-    margin-top: 7px;
-    display: flex;
-  gap: 1vh;
-  border-left: 2px solid #3333339c;
-  border-right: 2px solid #3333339c;
-    padding-left: 10px;
-    padding-right: 8px;
-   
-   
-  }
-  
-  .input{
-display: flex;
-gap: 0.2vh;
-
-border-right: 2px solid #3333339c;
-
-  }
-.searchButton{
-    height: 28px;
-    width: 58px;
-    border-radius: 10%;
-    margin-right: 2px;
-  
-  }
-
-
-  .right-menuitems{
-
-    border-left: 0.5px solid #3333335d;
-   
-  }
-  nav .active{
-    color: #fa0606;
-  }  
-  .input input {
-    margin-top: 5px;
-  }
-    
-.left li{
-  padding: 1.5px;
-  border-radius: 2px;
+    font-weight: 600;
 }
-  
-.left li:hover{
-    background-color: #43464c38;
-    transition: ease-in 0.4s;
-   
-  }
 
+.submenu-mobile {
+    list-style: none;
+    padding: 0;
+    margin-left: 15px;
+    background: #f5f5f5;
+}
 
+.submenu-mobile li {
+    padding: 8px 15px;
+    border-bottom: none;
+    font-size: 0.9em;
+}
 
+.search-box-mobile {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: #fff;
+    margin: 15px 20px;
+}
 
+.search-box-mobile input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    width: 100%;
+}
 
+.menu-icon {
+    display: none; /* Hide on desktop */
+    cursor: pointer;
+    z-index: 1001; /* Ensure icon is clickable */
+}
 
-  
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; /* Width of the menu */
+    max-width: 80vw;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto;
+    /* Transition for slide-out effect */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+.mobile-menu.open {
+    transform: translateX(0); /* Slide into view */
+}
+
+.menu-overlay {
+    display: none; /* Hide on desktop */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* ---------------------------------
+   ---------- Responsive Mobile Styles ----------
+   --------------------------------- */
+
+@media (max-width: 900px) {
+
+    /* Top Row - Set up for mobile alignment */
+    .header-top {
+        padding: 10px 5vw;
+        justify-content: space-between; /* Space logo and menu icon */
+        gap: 0;
+    }
+    
+    /* 1. Remove Header News Text on Mobile */
+    .header-news {
+        display: none; 
+    }
+
+    /* 2. Hide Desktop Navigation */
+    .header-nav {
+        display: none;
+    }
+
+    /* 3. Show Menu Icon */
+    .menu-icon {
+        display: block;
+    }
+
+    /* 4. Show Overlay when Menu is Open */
+    .mobile-menu.open + .menu-overlay {
+        display: block;
+    }
+
+    /* Optional: Center logo slightly better on small screens if needed */
+    .header-logo {
+        flex-grow: 1; 
+    }
+}

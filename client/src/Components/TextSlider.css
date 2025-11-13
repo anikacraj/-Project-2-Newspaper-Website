@@ -18,7 +18,7 @@ padding: 0;
 margin-top: 30px;
 color: white;
 border-radius: 4%;
-background-color: #FE3204;
+background-color: rgba(46, 38, 38, 0.76);
 }
 .slider{
    
@@ -42,7 +42,7 @@ background-color: #FE3204;
         width: 2vh;
         height: 2vh;
         border-radius: 50%;
-        background-color: #FE3204;
+       background-color: rgb(4, 165, 4);
         display: inline-block;
         white-space: nowrap;
         margin-left: 6px;

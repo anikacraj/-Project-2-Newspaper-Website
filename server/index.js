@@ -14,6 +14,7 @@ const textMessageModal = require("./Models/Text");
 const adminTextMessageModal = require("./Models/AdminText");
 const adsSliderSchemaModel =require('./Models/AdsSliderImage');
 const AdminLoginModel =require('./Models/AdminLogIn')
+const comment =require('./Models/Comment')
 
 
 const app = express();
@@ -282,7 +283,6 @@ app.post("/login", async (req, res) => {
     return res.status(500).json({ status: "error", message: "Internal server error" });
   }
 });
-
 
 
 

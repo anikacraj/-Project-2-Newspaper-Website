@@ -19,7 +19,7 @@ import Advertisment from './Pages/ForUsers/Advertisment/Advertisment';
 import NewsLetter from './Pages/ForUsers/Newsletter/NewsLetter';
 import CommentPolicy from './Pages/ForUsers/CommentPolicy/CommentPolicy';
 import PrivacyPolicy from './Pages/ForUsers/PrivacyPolicy/PrivacyPolicy';
-import Ebook from './Pages/ForUsers/Ebook/Ebook';
+
 import ShowNewsLetter from './Pages/AdminPanel/ShowNewsLetter/ShowNewsLetter';
 import AdminTextSlider from './Pages/AdminPanel/AdminTextSlider/AdminTextslider';
 
@@ -34,6 +34,8 @@ import AdminEditNews from './Pages/AdminPanel/AdminEditNews';
 import AdminSeeMore from './Pages/AdminPanel/AdminSeeMore';
 import ProtectedRoute from '../ProtectedRoute';
 import UserSeeMore from './Components/ForUsers/UserSeeMore';
+import CommentSection from './Components/ForUsers/CommentSection/CommentSection';
+import UserEbook from './Pages/ForUsers/Ebook/UserEbook';
 
 
 function App() {
@@ -64,6 +66,9 @@ function App() {
 
         {/* User Routes */}
         <Route path="/" element={<Home />} />
+        <Route path="/comment" element={<CommentSection />} />
+
+        
         <Route path="/national" element={<NationalPage />} />
         <Route path="/international" element={<InternationalPage />} />
         <Route path="/football" element={<Football />} />
@@ -73,6 +78,8 @@ function App() {
         <Route path="/newsletter" element={<NewsLetter />} />
         <Route path="/commentpolicy" element={<CommentPolicy />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+       
+
 
         {/* Protected User Route */}
         <Route
@@ -88,14 +95,17 @@ function App() {
         }
       />
         <Route
-          path="/ebook"
+          path="/userEbook"
           element={
              
              
            <ProtectedRoute 
          
+           isAuthenticated={isAuthenticated}
+           role={role}
+           allowedRoles={["user"]}
            >
-             <Ebook />
+             <UserEbook />
            </ProtectedRoute>
           }
         />
@@ -151,6 +161,8 @@ function App() {
              </AdminRoute>
           }
         />
+
+          
 
 
 
